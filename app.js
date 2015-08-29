@@ -15,10 +15,12 @@ app.set('layout', 'default');
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
-var indexController = require('./controllers/index');
+var home = require('./controllers/index').home;
 
-app.use('/', indexController);
+app.use('/', home);
 
-app.use('*', indexController);
+app.use('/index', home);
+
+app.use('*', home);
 
 server.listen(8080);
