@@ -5,7 +5,11 @@ var UserSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: String,
-    lastConnection: { type: Date, default: Date.now }
+    lastConnection: { type: Date, default: Date.now },
+    premium: Boolean,
+    inscriptionDate: {type: Date, default: Date.now},
+    role: String,
+    rank: String
 });
 
 UserSchema.methods = {

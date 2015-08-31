@@ -49,6 +49,7 @@ app.use('/login', login);
 app.use('/register', register);
 app.use('/about', about);
 app.use('/contact', contact);
+app.use('/account', account);
 app.use('*', home);
 
 server.listen(3000);

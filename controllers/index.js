@@ -3,5 +3,6 @@ module.exports = {
     login : require('./loginController.js'),
     register : require('./registerController.js'),
     about : require('./aboutController.js'),
-    contact : require('./contactController.js')
+    contact : require('./contactController.js'),
+    account : require('./accountController.js')
 };
