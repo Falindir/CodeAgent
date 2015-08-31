@@ -1,8 +1,13 @@
+{{#if user}}
+
+    <p> Bienvenu : {{user.name}} </p>
+
+{{else}}
 <div id="caInfoSign" class="row">
   <h2> codeagent.io what is ? </h2>
   <p> sfkùzf efh fzf zf ozfhoz foz fz f zf zf zf zf z fz fz fzfozfozf z </p>
 
-  <a href="register" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+  <a href="/register" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
 </div>
 
 <div class="row">
@@ -35,3 +40,5 @@
 <script type="text/javascript">
 
 </script>
+
+{{/if}}
