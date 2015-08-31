@@ -40,9 +40,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <!-- <li class="active"><a href="javascript:void(0)">Link</a></li> -->
-            <li><a href="home">Home</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="contact">Contact</a></li>
+            <li class="{{#if isHomePage}} active {{/if}}"><a href="/">Home</a></li>
+            <li class="{{#if isAboutPage}} active {{/if}}"><a href="/about">About</a></li>
+            <li class="{{#if isContactPage}} active {{/if}}"><a href="/contact">Contact</a></li>
             <!-- <li class="dropdown">
               <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -61,7 +61,7 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </form> -->
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="login">Login</a></li>
+            <li class="{{#if isLoginPage}} active {{/if}}"><a href="/login">Login</a></li>
             <!-- <li class="dropdown">
               <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">

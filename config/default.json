@@ -1,0 +1,5 @@
+{
+    "codeagent": {
+        "db": "mongodb://localhost/codeagent"
+    }
+}

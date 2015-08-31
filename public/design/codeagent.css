@@ -106,7 +106,10 @@ body {
 
 #caInfoSign {
   text-align: center;
+}
 
+#caInfoSign > h2 {
+  font-weight: bold;
 }
 
 .caInfo {
