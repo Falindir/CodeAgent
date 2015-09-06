@@ -52,4 +52,17 @@ app.use('/contact', contact);
 app.use('/account', account);
 app.use('*', home);
 
+// TEST
+
+var Game = require('./engine/game/game.js');
+
+var game1 = Game.create();
+var game2 = Game.create();
+
+game1.start();
+
+game2.start();
+game2.setInterval(1000);
+
+
 server.listen(3000);
