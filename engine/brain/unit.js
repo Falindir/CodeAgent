@@ -12,6 +12,8 @@ var UnitBrain = Class.extgend({
     this.agent.move();
   }
 
+
+
 });
 
 

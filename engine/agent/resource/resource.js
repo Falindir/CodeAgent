@@ -15,7 +15,7 @@ var Resource = Agent.extgend({
   isAbleToPickUp : function(agent) {
     if(agent.superType === AgentType.agent.unit) {
       if(agent.type === AgentType.unit.picker) {
-          
+
       }
     }
 
