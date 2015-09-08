@@ -2,14 +2,16 @@ var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
 var Actions = require('../actions.js');
 
-var UnitBrain = Class.extgend({
+var UnitBrain = Class.extend({
 
   init : function(agent) {
     this._super(agent);
   },
 
   move : function() {
-    this.agent.move();
+    if(this.agent.isAlive()) {
+      this.agent.move();
+    }
   }
 
 

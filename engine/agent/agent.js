@@ -2,7 +2,7 @@ var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
 var AgentType = require('../data/type.js');
 
-var Agent = Class.extgend({
+var Agent = Class.extend({
 
   init : function(cost, health, armor, hitbox, team, brain) {
     this.cost = cost;

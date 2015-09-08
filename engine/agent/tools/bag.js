@@ -1,7 +1,7 @@
 var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
 
-var Bag = Class.extgend({
+var Bag = Class.extend({
 
   init : function(element, size) {
       this.element = element;
