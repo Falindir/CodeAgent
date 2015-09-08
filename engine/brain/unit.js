@@ -2,20 +2,17 @@ var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
 var Actions = require('../actions.js');
 
-var Brain = Class.extgend({
+var UnitBrain = Class.extgend({
 
   init : function(agent) {
-    this.agent = agent;
+    this._super(agent);
   },
 
-  action : function() {
-
-    // default action
-
-    return this.nothing();
+  move : function() {
+    this.agent.move();
   }
 
 });
 
 
-module.export = Brain;
+module.export = UnitBrain;

@@ -1,4 +1,5 @@
 module.exports = {
+  NOTHING : "nothing",
   IDLE    : "idle",
   MOVE    : "move",
   SHOOT   : "fire",

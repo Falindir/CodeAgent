@@ -8,7 +8,6 @@ var Hitbox = Class.extend({
         this.x = x;
         this.y = y;
         this.contener = Rectangle.create(x, y, width, height);
-
     }
 
 

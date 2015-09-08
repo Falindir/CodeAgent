@@ -1,4 +1,13 @@
 var Type = {
+
+  agent : {
+    agent     : "AGENT",
+    unit      : "UNIT",
+    building  : "BUILDING",
+    resource  : "RESOURCE",
+    deposit   : "DEPOSIT",
+  },
+
   unit : {
     observer  : "OBSERVER",
     builder   : "BUILDER",
@@ -9,9 +18,19 @@ var Type = {
   },
 
   building : {
-    base  : "BASE",
-    wall  : "WALL",
-    forge : "FORGE"
+    base    : "BASE",
+    wall    : "WALL",
+    factory : "FACTORY"
+  },
+
+  resource : {
+    plant   : "PLANT",
+    mineral : "MINERAL"
+  },
+
+  deposit : {
+    field : "FIELD",
+    mine  : "MINE"
   }
 
 

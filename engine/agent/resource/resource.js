@@ -1,0 +1,28 @@
+var Class = require('uberproto');
+var LILI = require('../../lib/lili/lili.js');
+var AgentType = require('../data/type.js');
+
+var Resource = Agent.extgend({
+
+  init : function(cost, health, hitbox, team, brain, viewDistance, bag, bagType, bagSize) {
+    this._super(cost, health, 0, hitbox, team, brain);
+
+    this.superType = AgentType.agent.resource;
+    this.type = AgentType.agent.resource;
+
+  },
+
+  isAbleToPickUp : function(agent) {
+    if(agent.superType === AgentType.agent.unit) {
+      if(agent.type === AgentType.unit.picker) {
+          
+      }
+    }
+
+    return false;
+  }
+
+
+});
+
+module.export = Deposit;
