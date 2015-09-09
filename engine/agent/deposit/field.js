@@ -1,5 +1,5 @@
 var Class = require('uberproto');
-var LILI = require('../../lib/lili/lili.js');
+var LILI = require('../../../lib/lili/lili.js');
 var AgentType = require('../data/type.js');
 var Deposit = require('./index.js').deposit;
 var Plant = require('../resource/index.js').plant;
@@ -14,6 +14,10 @@ var Field = Deposit.extend({
     this.zoneDistance = zoneDistance;
   },
 
+  create : function() {
+    // var Plant = PlantFactory.create(this.)
+
+  }
 
 
 

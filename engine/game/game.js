@@ -1,6 +1,7 @@
 var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
 var uuid = require('node-uuid');
+var Team = require
 
 var Game = Class.extend({
 

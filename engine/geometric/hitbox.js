@@ -22,7 +22,16 @@ var Hitbox = Class.extend({
         this.y += A;
 
         // TODO finish
-        //this.contener.translation(alpha, distance);
+        this.contener.translation(alpha, distance);
+    },
+
+    rotation : function(angle) {
+      var alphaR = LILI.Math.radians(alpha);
+      this.contener.rotation(this.getPosition(), alphaR);
+    },
+
+    getPosition : function() {
+      return LILI.Geometric.Point2D.create(this.x, this.y);
     }
 
 
