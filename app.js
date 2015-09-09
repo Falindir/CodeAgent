@@ -66,11 +66,21 @@ app.use('*', home);
 
 var LILI = require('./lib/lili/lili.js');
 var R = require('./engine/geometric/form.js');
+var H = require('./engine/geometric/hitbox.js');
 
-var r1 = R.create(0, 0, 40, 20);
-console.log(r1.toString());
-var origin = LILI.Geometric.Point2D.create(0, 0);
-console.log(origin.toString());
-r1.rotation(origin, Math.PI / 2);
-console.log(r1.toString());
+// var r1 = R.create(0, 0, 40, 20);
+// console.log(r1.toString());
+// var origin = LILI.Geometric.Point2D.create(0, 0);
+// console.log(origin.toString());
+// r1.rotation(origin, Math.PI / 2);
+// console.log(r1.toString());
+
+var h1 = H.create(0, 0, 40, 20);
+console.log(h1.toString());
+h1.rotation(90);
+console.log(h1.toString());
+h1.rotation(90);
+console.log(h1.toString());
+h1.rotation(180);
+console.log(h1.toString());
 server.listen(3000);

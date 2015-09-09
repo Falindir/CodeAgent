@@ -1,6 +1,6 @@
 
 var Class = require('uberproto');
-var Rectangle = require('./form.js').Rectangle;
+var Rectangle2D = require('./form.js');
 var LILI = require('../../lib/lili/lili.js');
 
 var Hitbox = Class.extend({
@@ -8,7 +8,7 @@ var Hitbox = Class.extend({
     init : function(x, y, width, height) {
         this.x = x;
         this.y = y;
-        this.contener = Rectangle.create(x, y, width, height);
+        this.contener = Rectangle2D.create(x, y, width, height);
     },
 
     translation : function(alpha, distance) {
@@ -25,13 +25,18 @@ var Hitbox = Class.extend({
         this.contener.translation(alpha, distance);
     },
 
-    rotation : function(angle) {
+    rotation : function(alpha) {
       var alphaR = LILI.Math.radians(alpha);
-      this.contener.rotation(this.getPosition(), alphaR);
+      this.contener.rotation(alphaR);
     },
 
     getPosition : function() {
       return LILI.Geometric.Point2D.create(this.x, this.y);
+    },
+
+    toString : function() {
+      return "Hitbox : " + this.x + ", " + this.y +
+        "\n\t" + this.contener.toString();
     }
 
 

@@ -25,23 +25,10 @@ var Rectangle2D = Polygon2D.extend({
       this.points.add(LILI.Geometric.Point2D.create(x-w2,y-h2));
   },
 
-  calculNewPoint : function(index, angle) {
-    var point = this.points.get(index);
-    var x = point.x*Math.cos(angle) - point.y*Math.sin(angle);
-    var y = point.x*Math.sin(angle) + point.y*Math.cos(angle);
-    return LILI.Geometric.Point2D.create(x, y);
-  },
-
-  rotation : function(origin, angle) {
-    var p1 = this.calculNewPoint(0, angle);
-    var p2 = this.calculNewPoint(1, angle);
-    var p3 = this.calculNewPoint(2, angle);
-    var p4 = this.calculNewPoint(3, angle);
-
-    this.points.set(0, p1);
-    this.points.set(1, p2);
-    this.points.set(2, p3);
-    this.points.set(3, p4);
+  rotation : function(angle) {
+    for (var i = 0; i < this.points.size; i++) {
+      this.points.set(i, LILI.Geometric.rotationPoint2D(this.points.get(i), angle));
+    }
   },
 
   translation : function(angle, distance) {
@@ -53,7 +40,8 @@ var Rectangle2D = Polygon2D.extend({
   },
 
   toString : function () {
-    return "Rectangle2D : \n\t" + this.points.get(0).toString() +
+    return "Rectangle2D : " +
+      "\n\t" + this.points.get(0).toString() +
       "\n\t" + this.points.get(1).toString() +
       "\n\t" + this.points.get(2).toString() +
       "\n\t" + this.points.get(3).toString();
