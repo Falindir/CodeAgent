@@ -1,11 +1,12 @@
 var Type = {
 
   agent : {
-    agent     : "AGENT",
-    unit      : "UNIT",
-    building  : "BUILDING",
-    resource  : "RESOURCE",
-    deposit   : "DEPOSIT",
+    agent       : "AGENT",
+    unit        : "UNIT",
+    building    : "BUILDING",
+    resource    : "RESOURCE",
+    deposit     : "DEPOSIT",
+    projectile  : "PROJECTILE"
   },
 
   unit : {
@@ -31,6 +32,11 @@ var Type = {
   deposit : {
     field : "FIELD",
     mine  : "MINE"
+  },
+
+  projectile : {
+    rocket  : "ROCKET",
+    bomb    : "BOMB"
   }
 
 

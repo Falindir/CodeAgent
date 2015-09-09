@@ -32,6 +32,10 @@ var Agent = Class.extend({
 
   action : function() {
     return this.brain.action();
+  },
+
+  getDistanceFromAgent : function(agent2) {
+    return this.hitbox.getDistance(agent2.hitbox);
   }
 });
 

@@ -18,10 +18,6 @@ var Unit = Agent.extend({
     this.tier = Tier.unit.T1;
   },
 
-  getDistanceFromAgent : function(agent2) {
-    return this.hitbox.getDistance(agent2.hitbox);
-  },
-
   viewAgent : function(agent2) {
     return this.viewDistance >= this.getDistanceFromAgent(agent2);
   },

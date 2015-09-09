@@ -4,7 +4,7 @@ var AgentType = require('../data/type.js');
 
 var Deposit = Agent.extend({
 
-  init : function(cost, health, hitbox, team, brain, viewDistance, bag, bagType, bagSize) {
+  init : function(cost, health, hitbox, team, brain) {
     this._super(cost, health, 0, hitbox, team, brain);
 
     this.superType = AgentType.agent.deposit;
