@@ -22,12 +22,16 @@ var Hitbox = Class.extend({
         this.y += A;
 
         // TODO finish
-        this.contener.translation(alpha, distance);
+        this.contener.translation(alphaR, distance);
     },
 
     rotation : function(alpha) {
       var alphaR = LILI.Math.radians(alpha);
       this.contener.rotation(alphaR);
+    },
+
+    intersect : function(hitbox2) {
+      return this.contener.intersect(hitbox2.contener);
     },
 
     getPosition : function() {
