@@ -21,7 +21,8 @@ var Type = {
   building : {
     base    : "BASE",
     wall    : "WALL",
-    factory : "FACTORY"
+    factory : "FACTORY",
+    beacon  : "BEACON",
   },
 
   resource : {

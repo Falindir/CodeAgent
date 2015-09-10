@@ -22,6 +22,30 @@ var Unit = Agent.extend({
     return this.viewDistance >= this.getDistanceFromAgent(agent2);
   },
 
+  getAllAgentsView : function() {
+    var agents = LILI.Collections.List();
+    for (var i = 0; i < this.env.getAgents().size; i++) {
+      var a = this.env.getAgents().get(i);
+      if(a.isAlive()){
+        if(this.viewAgent(a)) {
+          agents.add(a);
+        }
+      }
+    }
+  },
+
+  getAllAgentsViewByType : function(type) {
+    var agents = this.getAllAgentsView();
+    var agentsFilted = LILI.Collections.List();
+    for (var i = 0; i < agents.size; i++) {
+      var a = agents.get(i);
+      if(a.type === type){
+        agentsFilted.add(a);
+      }
+    }
+    return agentsFilted;
+  },
+
   move : function() {
       this.hitbox.translation(this.heading, this.speed);
   }

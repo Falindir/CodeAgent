@@ -4,7 +4,7 @@ var AgentType = require('../data/type.js');
 
 var Agent = Class.extend({
 
-  init : function(cost, health, armor, hitbox, team, brain) {
+  init : function(cost, health, armor, hitbox, team, brain, env) {
     this.cost = cost;
     this.health = health;
     this.armor = armor;
@@ -16,6 +16,7 @@ var Agent = Class.extend({
     this.brain = brain.create(this);
     this.superType = AgentType.agent.agent;
     this.type = AgentType.agent.agent;
+    this.env = env;
   },
 
   nothing : function() {
@@ -36,6 +37,10 @@ var Agent = Class.extend({
 
   getDistanceFromAgent : function(agent2) {
     return this.hitbox.getDistance(agent2.hitbox);
+  },
+
+  kill : function() {
+    this.currentHealth = 0;
   }
 });
 
