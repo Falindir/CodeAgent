@@ -11,6 +11,10 @@ var Team = Class.extend({
     this.agents = LILI.Collections.Map.create();
 
     this.type = undefined;
+  },
+
+  getNumberOfAgent : function(type) {
+    return 0; // TODO finish
   }
 
 });

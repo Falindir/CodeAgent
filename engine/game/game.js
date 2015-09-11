@@ -1,14 +1,14 @@
 var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
 var uuid = require('node-uuid');
-var Team = require
 
 var Game = Class.extend({
 
-  init : function(p1, p2) {
+  init : function(t1, t2) {
     this.id = uuid.v1();
-    this.player1 = p1;
-    this.player2 = p2;
+    this.team1 = t1;
+    this.team2 = t2;
+    this.mother = null; //TODO new mother
 
     this.tick = 0;
     this.interval = 60;

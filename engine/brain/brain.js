@@ -8,11 +8,15 @@ var Brain = Class.extend({
     this.agent = agent;
   },
 
-  action : function() {
+  actionEveryTick : function() {
 
     // default action
 
     return this.nothing();
+  },
+
+  isAlive : function() {
+    return this.agent.isAlive();
   }
 
 });

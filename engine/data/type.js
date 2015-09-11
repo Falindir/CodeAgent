@@ -37,7 +37,8 @@ var Type = {
 
   projectile : {
     rocket  : "ROCKET",
-    bomb    : "BOMB"
+    bomb    : "BOMB",
+    missile : "MISSILE"
   }
 
 
