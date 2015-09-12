@@ -54,33 +54,16 @@ app.use('*', home);
 
 // TEST
 
-// var Game = require('./engine/game/game.js');
-//
-// var game1 = Game.create();
-// var game2 = Game.create();
-//
+var Game = require('./engine/game/game.js');
+var game1 = Game.create(123456789, "ToTo", 123456789, "ToTo");
+console.log(game1.toString());
+
+//var env = Environment.create(game1);
+//console.log(env);
+
 // game1.start();
-//
-// game2.start();
-// game2.setInterval(1000);
-
-var LILI = require('./lib/lili/lili.js');
-var R = require('./engine/geometric/form.js');
-var H = require('./engine/geometric/hitbox.js');
-
-var h1 = H.create(0, 0, 40, 20);
-console.log(h1.toString());
-h1.rotation(90);
-console.log(h1.toString());
 
 
-var h2 = H.create(40, 0, 40, 20);
-console.log(h2.toString());
-
-console.log(h1.intersect(h2));
-
-h2.translation(0, 25);
-console.log(h2.toString());
 
 
 server.listen(3000);

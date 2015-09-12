@@ -22,4 +22,4 @@ var Brain = Class.extend({
 });
 
 
-module.export = Brain;
+module.exports = Brain;

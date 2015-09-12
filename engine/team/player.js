@@ -1,11 +1,12 @@
 var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
 var TeamType = require('../data/index.js').team;
+var Team = require('./team.js');
 
-var PlayerTeam = Class.extend({
+var PlayerTeam = Team.extend({
 
-  init : function(name, user, game) {
-    this._super(name, user, game);
+  init : function(name, user, env) {
+    this._super(name, user, env);
     this.type = TeamType.player;
   },
 
@@ -17,12 +18,8 @@ var PlayerTeam = Class.extend({
     }
 
     return false;
-  },
-
-  duplicate : function() {
-    return PlayerTeam.create(this.name+"-2", this.user, this.game);
   }
 
 });
 
-module.export = PlayerTeam;
+module.exports = PlayerTeam;

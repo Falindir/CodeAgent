@@ -20,4 +20,4 @@ var Observer = Unit.extend({
 
 });
 
-module.export = Observer;
+module.exports = Observer;

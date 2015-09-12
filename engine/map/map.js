@@ -12,4 +12,4 @@ var Map = Class.extend({
 });
 
 
-module.export = Map;
+module.exports = Map;

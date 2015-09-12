@@ -10,4 +10,4 @@ var Tier = {
 
 };
 
-module.export = Tier;
+module.exports = Tier;

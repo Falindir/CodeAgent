@@ -17,4 +17,4 @@ var Builder = Unit.extend({
 
 });
 
-module.export = Builder;
+module.exports = Builder;

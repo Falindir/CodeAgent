@@ -21,4 +21,4 @@ var UnitBrain = Brain.extend({
 });
 
 
-module.export = UnitBrain;
+module.exports = UnitBrain;

@@ -44,4 +44,4 @@ var Type = {
 
 };
 
-module.export = Type;
+module.exports = Type;

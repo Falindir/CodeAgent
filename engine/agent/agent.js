@@ -45,4 +45,4 @@ var Agent = Class.extend({
 });
 
 
-module.export = Agent;
+module.exports = Agent;

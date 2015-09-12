@@ -24,4 +24,4 @@ var ProjectileBrain = Brain.extend({
 });
 
 
-module.export = ProjectileBrain;
+module.exports = ProjectileBrain;

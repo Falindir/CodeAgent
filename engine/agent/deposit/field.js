@@ -24,4 +24,4 @@ var Field = Deposit.extend({
 
 });
 
-module.export = Field;
+module.exports = Field;

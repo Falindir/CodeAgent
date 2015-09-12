@@ -14,4 +14,4 @@ var Deposit = Agent.extend({
 
 });
 
-module.export = Deposit;
+module.exports = Deposit;

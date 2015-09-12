@@ -51,4 +51,4 @@ var Unit = Agent.extend({
   }
 });
 
-module.export = Unit;
+module.exports = Unit;

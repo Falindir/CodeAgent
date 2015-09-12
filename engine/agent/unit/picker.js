@@ -27,4 +27,4 @@ var Picker = Unit.extend({
 
 });
 
-module.export = Observer;
+module.exports = Observer;

@@ -28,4 +28,4 @@ var Projectile = Agent.extend({
 
 });
 
-module.export = Projectile;
+module.exports = Projectile;

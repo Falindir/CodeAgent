@@ -65,4 +65,4 @@ var SoldierBrain = UnitBrain.extend({
 });
 
 
-module.export = SoldierBrain;
+module.exports = SoldierBrain;

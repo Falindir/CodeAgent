@@ -1,14 +1,14 @@
 var Class = require('uberproto');
-var LILI = require('../../lib/lili/lili.js');
 var uuid = require('node-uuid');
+var Environment = require('../environment/environment.js');
 
 var Game = Class.extend({
 
-  init : function(t1, t2) {
+  init : function(u1, t1, u2, t2) {
     this.id = uuid.v1();
-    this.team1 = t1;
-    this.team2 = t2;
-    this.mother = null; //TODO new mother
+    this.env = Environment.create(this);
+    this.env.addTeam(u1, t1);
+    this.env.addTeam(u2, t2);
 
     this.tick = 0;
     this.interval = 60;
@@ -56,6 +56,12 @@ var Game = Class.extend({
   stop : function() {
 
 
+  },
+
+  toString : function() {
+    return "Game : " +
+      "\n\tid : " + this.id +
+      "\n\t" + this.env.toString();
   }
 
 

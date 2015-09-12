@@ -1,6 +1,6 @@
-var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
 var AgentType = require('../data/type.js');
+var Agent = require('../agents.js');
 
 var Building = Agent.extend({
 
@@ -14,4 +14,4 @@ var Building = Agent.extend({
 
 });
 
-module.export = Building;
+module.exports = Building;

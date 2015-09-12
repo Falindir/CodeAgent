@@ -17,4 +17,4 @@ var Soldier = Unit.extend({
 
 });
 
-module.export = Soldier;
+module.exports = Soldier;

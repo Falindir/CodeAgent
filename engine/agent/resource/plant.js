@@ -26,4 +26,4 @@ var Plant = Resource.extend({
 
 });
 
-module.export = Plant;
+module.exports = Plant;

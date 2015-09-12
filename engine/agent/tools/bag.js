@@ -19,4 +19,4 @@ var Bag = Class.extend({
 
 });
 
-module.export = Bag;
+module.exports = Bag;

@@ -25,4 +25,4 @@ var Resource = Agent.extend({
 
 });
 
-module.export = Resource;
+module.exports = Resource;
