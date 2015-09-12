@@ -6,7 +6,7 @@ var Game = Class.extend({
 
   init : function(u1, t1, u2, t2) {
     this.id = uuid.v1();
-    this.env = Environment.create(this);
+    this.env = Environment.create();
     this.env.addTeam(u1, t1);
     this.env.addTeam(u2, t2);
 

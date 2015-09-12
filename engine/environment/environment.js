@@ -6,8 +6,7 @@ var PlayerTeam = require('../team/index.js').player;
 
 var Environment = Class.extend({
 
-  init : function(game) {
-    this.game = game;
+  init : function() {
     this.teams = LILI.Collections.Map.create();
     this.mother = MotherTeam.create(this);
     this.teams.insert(this.mother.name, this.mother);
