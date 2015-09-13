@@ -1,13 +1,12 @@
 var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
-var Hitbox = require('../geometric/hitbox.js');
 
 var Zone = Class.extend({
 
   init : function(id, x, y, width, height, map) {
     this.id = id;
-    this.x = 0;
-    this.y = 0;
+    this.x = x;
+    this.y = y;
     this.width = width;
     this.height = height;
     this.map = map;
@@ -21,11 +20,11 @@ var Zone = Class.extend({
 
   toString : function() {
     return "Zone : " +
-      "\n\tId : " + this.id,
-      "\n\tX : " + this.x,
-      "\n\tY : " + this.y,
-      "\n\tWidth : " + this.width,
-      "\n\tHeight : " + this.height,
+      "\n\tId : " + this.id +
+      "\n\tX : " + this.x +
+      "\n\tY : " + this.y +
+      "\n\tWidth : " + this.width +
+      "\n\tHeight : " + this.height +
       "\n\tRadius : " + this.radius;
   }
 });

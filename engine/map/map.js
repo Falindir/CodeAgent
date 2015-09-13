@@ -1,6 +1,7 @@
 var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
 var Hitbox = require('../geometric/hitbox.js');
+var Zone = require('./zone.js');
 
 var Map = Class.extend({
 
@@ -12,6 +13,7 @@ var Map = Class.extend({
     this.height = height;
     this.env = env;
     this.wall = LILI.Collections.List.create();
+    this.zones = LILI.Collections.List.create();
   },
 
   createWall : function() {
@@ -26,8 +28,20 @@ var Map = Class.extend({
     this.wall.add(w4);
   },
 
-  createZone : function() {
+  createZone : function(size) {
+    var id = 0;
+    var sizeW = this.width / size;
+    var sizeH = this.height / size;
+    var x0 = -1 * (this.width / 2);
+    var y0 = this.height / 2;
 
+    for (var j = (y0 - (sizeH / 2)); j > (-1) * this.height / 2; j -= sizeH) {
+      for (var i = (x0 + (sizeW / 2)); i < this.width / 2; i += sizeW) {
+        id++;
+        var zone = Zone.create(id, i, j, sizeW, sizeH, this);
+        this.zones.add(zone);
+      }
+    }
   },
 
   collitions : function(object) {
@@ -51,6 +65,11 @@ var Map = Class.extend({
 
     for (var i = 0; i < this.wall.size; i++) {
       result += "\n\t" + this.wall.get(i).toString();
+    }
+
+    result += "\n\tZone : ";
+    for (var z = 0; z < this.zones.size; z++) {
+      result += "\n\t" + this.zones.get(z).toString();
     }
 
     return result;

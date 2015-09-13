@@ -10,15 +10,16 @@ function MapFactory () {
     var map;
 
     switch (type) {
-      case Type.map.default:
-          map = Map.create(1000, 800, env);
+      case Type.map.default: // TODO no pass 
+          map = Map.create(800, 800, env);
+          map.createZone(5);
         break;
       default:
-          map = Map.create(1000, 800, env);
+          map = Map.create(800, 800, env);
+          map.createZone(5);
     }
 
     map.createWall();
-    map.createZone();
 
     return map;
 
