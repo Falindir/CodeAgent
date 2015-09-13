@@ -39,6 +39,10 @@ var Type = {
     rocket  : "ROCKET",
     bomb    : "BOMB",
     missile : "MISSILE"
+  },
+
+  map : {
+    default : "DEFAULT"
   }
 
 

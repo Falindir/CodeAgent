@@ -3,14 +3,16 @@ var LILI = require('../../lib/lili/lili.js');
 // var AgentType = require('../data/type.js');
 var MotherTeam = require('../team/index.js').mother;
 var PlayerTeam = require('../team/index.js').player;
+var MapFactory = require('../factory/index.js').map;
 
 var Environment = Class.extend({
 
-  init : function() {
+  init : function(mapType) {
     this.teams = LILI.Collections.Map.create();
     this.mother = MotherTeam.create(this);
     this.teams.insert(this.mother.name, this.mother);
     this.victoriousTeam = undefined;
+    this.map = (new MapFactory()).create(mapType, this);
   },
 
   addTeam : function(user, team) {
@@ -25,9 +27,24 @@ var Environment = Class.extend({
 
   },
 
-  // getAgents : function() {
-  //   return this.agents;
-  // },
+  getAgents : function() {
+    var agents = LILI.Collections.List.create();
+
+    for (var i = 0; i < this.teams.size; i++) {
+      gents.addList(this.teams.getAgents, false);
+    }
+
+    return agents;
+  },
+
+  getAgentsByType : function(type){
+
+  },
+
+  getAgentsOfTeam : function(team) {
+    return this.teams.get(team).getAgents();
+  },
+
   //
   // destroyAllAgentsDead : function () {
   //   for (var i = 0; i < this.agents.size; i++) {
@@ -50,7 +67,7 @@ var Environment = Class.extend({
   //
   //   // TODO need refactor
   //   if(this.game.team1.getNumberOfAgent(AgentType.building.base) === 0) {
-  //     this.victoriousTeam = this.game.team1;
+  //     thgis.victoriousTeam = this.game.team1;
   //   }
   //   else {
   //     if(this.game.team2.getNumberOfAgent(AgentType.building.base) === 0) {
@@ -69,6 +86,8 @@ var Environment = Class.extend({
     for (var i = 0; i < this.teams.size; i++) {
       result += "\n\t" + this.teams.getContent(i).toString();
     }
+
+    result += "\n\t" + this.map.toString();
 
     return result;
   }

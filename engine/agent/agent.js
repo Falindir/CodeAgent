@@ -41,6 +41,10 @@ var Agent = Class.extend({
 
   kill : function() {
     this.currentHealth = 0;
+  },
+
+  collisions : function(object) {
+    return this.hitbox.intersect(object.hitbox);
   }
 });
 

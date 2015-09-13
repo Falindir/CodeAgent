@@ -40,9 +40,9 @@ var Team = Class.extend({
 
   toString : function() {
     return "Team : " +
-      "\n\t" + this.type +
-      "\n\t" + this.name +
-      "\n\t" + this.user;
+      "\n\tType : " + this.type +
+      "\n\tName : " + this.name +
+      "\n\tUser : " + this.user;
   }
 
 });

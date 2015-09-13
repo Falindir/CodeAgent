@@ -1,8 +1,8 @@
 var Class = require('uberproto');
-var LILI = require('../../lib/lili/lili.js');
-var Bag = require('./tools/bag.js');
+var LILI = require('../../../lib/lili/lili.js');
 var AgentType = require('../../data/type.js');
 var Tier = require('../../data/tiers.js');
+var Agent = require('../agent.js');
 
 var Unit = Agent.extend({
 

@@ -1,5 +1,5 @@
 var Class = require('uberproto');
-var LILI = require('../../lib/lili/lili.js');
+var LILI = require('../../../lib/lili/lili.js');
 var AgentType = require('../../data/type.js');
 var Unit = require('./unit.js');
 

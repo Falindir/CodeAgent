@@ -4,9 +4,9 @@ var Environment = require('../environment/environment.js');
 
 var Game = Class.extend({
 
-  init : function(u1, t1, u2, t2) {
+  init : function(u1, t1, u2, t2, mapType) {
     this.id = uuid.v1();
-    this.env = Environment.create();
+    this.env = Environment.create(mapType);
     this.env.addTeam(u1, t1);
     this.env.addTeam(u2, t2);
 
