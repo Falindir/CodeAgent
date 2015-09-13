@@ -26,6 +26,10 @@ var Map = Class.extend({
     this.wall.add(w4);
   },
 
+  createZone : function() {
+
+  },
+
   collitions : function(object) {
     for (var i = 0; i < this.wall.size; i++) {
       if(this.wall.get(i).intersect(object.hitbox)){

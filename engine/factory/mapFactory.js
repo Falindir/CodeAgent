@@ -12,13 +12,13 @@ function MapFactory () {
     switch (type) {
       case Type.map.default:
           map = Map.create(1000, 800, env);
-          map.createWall();
         break;
       default:
           map = Map.create(1000, 800, env);
-          map.createWall();
     }
 
+    map.createWall();
+    map.createZone();
 
     return map;
 
