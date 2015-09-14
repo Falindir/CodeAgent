@@ -27,8 +27,13 @@ var Type = {
 
   resource : {
     plant   : "PLANT",
-    mineral : "MINERAL"
+    mineral : "MINERAL",
+    darkmatter : "DARKMATTER"
   },
+
+  item : {
+    upgrade : "UPGRADE"
+  }
 
   deposit : {
     field : "FIELD",

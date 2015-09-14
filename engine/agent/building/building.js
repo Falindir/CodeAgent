@@ -4,7 +4,7 @@ var Agent = require('../agents.js');
 
 var Building = Agent.extend({
 
-  init : function(cost, armor, hitbox, team, brain, viewDistance, bag, bagType, bagSize) {
+  init : function(cost, armor, hitbox, team, brain) {
     this._super(cost, 1, armor, hitbox, team, brain);
 
     this.superType = AgentType.agent.building;
