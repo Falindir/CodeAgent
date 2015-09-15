@@ -4,7 +4,7 @@ var AgentType = require('../data/type.js');
 
 var Agent = Class.extend({
 
-  init : function(cost, health, armor, hitbox, team, brain, env) {
+  init : function(cost, health, armor, hitbox, team, brain) {
     this.cost = cost;
     this.health = health;
     this.armor = armor;
@@ -16,7 +16,6 @@ var Agent = Class.extend({
     this.brain = brain.create(this);
     this.superType = AgentType.agent.agent;
     this.type = AgentType.agent.agent;
-    this.env = env;
   },
 
   nothing : function() {

@@ -3,13 +3,12 @@ var LILI = require('../../lib/lili/lili.js');
 
 var Zone = Class.extend({
 
-  init : function(id, x, y, width, height, map) {
+  init : function(id, x, y, width, height) {
     this.id = id;
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
-    this.map = map;
     this.radius = LILI.Math.percentageCalculator(Math.min(this.width, this.height), -20);
   },
 

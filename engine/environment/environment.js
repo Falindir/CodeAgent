@@ -12,7 +12,7 @@ var Environment = Class.extend({
     this.mother = MotherTeam.create(this);
     this.teams.insert(this.mother.name, this.mother);
     this.victoriousTeam = undefined;
-    this.map = (new MapFactory()).create(mapType, this);
+    this.map = (new MapFactory()).create(mapType);
   },
 
   addTeam : function(user, team) {

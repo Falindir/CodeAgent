@@ -5,13 +5,12 @@ var Zone = require('./zone.js');
 
 var Map = Class.extend({
 
-  init : function(width, height, env) {
+  init : function(width, height) {
     this.type = undefined;
     this.x = 0;
     this.y = 0;
     this.width = width;
     this.height = height;
-    this.env = env;
     this.wall = LILI.Collections.List.create();
     this.zones = LILI.Collections.List.create();
   },
@@ -38,7 +37,7 @@ var Map = Class.extend({
     for (var j = (y0 - (sizeH / 2)); j > (-1) * this.height / 2; j -= sizeH) {
       for (var i = (x0 + (sizeW / 2)); i < this.width / 2; i += sizeW) {
         id++;
-        var zone = Zone.create(id, i, j, sizeW, sizeH, this);
+        var zone = Zone.create(id, i, j, sizeW, sizeH);
         this.zones.add(zone);
       }
     }

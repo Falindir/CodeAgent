@@ -1,5 +1,4 @@
 var Type = require('../data/type.js');
-
 var Map = require('../map/map.js');
 
 
@@ -10,12 +9,12 @@ function MapFactory () {
     var map;
 
     switch (type) {
-      case Type.map.default: // TODO no pass 
-          map = Map.create(800, 800, env);
+      case Type.map.default: // TODO no pass
+          map = Map.create(800, 800);
           map.createZone(5);
         break;
       default:
-          map = Map.create(800, 800, env);
+          map = Map.create(800, 800);
           map.createZone(5);
     }
 
