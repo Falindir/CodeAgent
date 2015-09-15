@@ -10,30 +10,22 @@ var Type = {
   },
 
   unit : {
-    observer  : "OBSERVER",
-    builder   : "BUILDER",
     soldier   : "SOLDIER",
-    healer    : "HEALER",
-    defender  : "DEFENDER",
     picker    : "PICKER"
   },
 
   building : {
-    base    : "BASE",
-    wall    : "WALL",
-    factory : "FACTORY",
-    beacon  : "BEACON",
+    base    : "BASE"
   },
 
   resource : {
     plant   : "PLANT",
-    mineral : "MINERAL",
-    darkmatter : "DARKMATTER"
+    mineral : "MINERAL"
   },
 
   item : {
     upgrade : "UPGRADE"
-  }
+  },
 
   deposit : {
     field : "FIELD",
@@ -41,9 +33,7 @@ var Type = {
   },
 
   projectile : {
-    rocket  : "ROCKET",
-    bomb    : "BOMB",
-    missile : "MISSILE"
+    rocket  : "ROCKET"
   },
 
   map : {

@@ -1,4 +1,5 @@
 module.exports = {
     unit: require('./unit.js'),
-    observer : require('./observer.js'),
+    soldier : require('./soldier.js'),
+    picker : require('./picker.js')
 };

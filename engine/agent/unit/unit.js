@@ -1,7 +1,6 @@
 var Class = require('uberproto');
 var LILI = require('../../../lib/lili/lili.js');
 var AgentType = require('../../data/type.js');
-var Tier = require('../../data/tiers.js');
 var Agent = require('../agent.js');
 
 var Unit = Agent.extend({
@@ -14,8 +13,6 @@ var Unit = Agent.extend({
     this.type = AgentType.agent.unit;
 
     this.speed = speed;
-
-    this.tier = Tier.unit.T1;
   },
 
   viewAgent : function(agent2) {

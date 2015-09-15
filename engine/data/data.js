@@ -7,34 +7,6 @@
 var Data = {
   agent : {
     unit : {
-      observer  : {
-        cost : {
-          plant :
-          mineral :
-        },
-        health : ,
-        armor : ,
-        hitbox : {
-          width : 1,
-          height : 1
-        },
-        viewDistance : 6
-      },
-
-      builder   : {
-        cost : {
-          plant :
-          mineral :
-        },
-        health : ,
-        armor : ,
-        hitbox : {
-          width : 1,
-          height : 1
-        },
-        viewDistance : 3
-      },
-
       soldier   : {
         cost : {
           plant :
@@ -47,34 +19,6 @@ var Data = {
           height : 1
         },
         viewDistance : 2
-      },
-
-      healer    : {
-        cost : {
-          plant :
-          mineral :
-        },
-        health : ,
-        armor : ,
-        hitbox : {
-          width : 1,
-          height : 1
-        },
-        viewDistance : 3
-      },
-
-      defender  : {
-        cost : {
-          plant :
-          mineral :
-        },
-        health : ,
-        armor : ,
-        hitbox : {
-          width : 1,
-          height : 1
-        },
-        viewDistance : 4
       },
 
       picker    : {
@@ -109,14 +53,7 @@ var Data = {
           width : 0.5
           height : 0.5
         }
-      },
-
-      darkmatter : {
-        hitbox : {
-          width : 0.5
-          height : 0.5
-        }
-      },
+      }
     },
 
     deposit  : {
@@ -132,16 +69,6 @@ var Data = {
     default : {
       width : 800,
       height : 800
-    },
-
-    small : {
-      width : 600,
-      height : 600
-    },
-
-    big : {
-      width : 1000,
-      height : 1000
     }
   }
 };

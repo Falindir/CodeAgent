@@ -9,6 +9,7 @@ var Resource = Agent.extend({
 
     this.superType = AgentType.agent.resource;
     this.type = AgentType.agent.resource;
+    
 
   }
 
