@@ -55,8 +55,12 @@ app.use('*', home);
 // TEST
 
 var Game = require('./engine/game/game.js');
+var AgentType = require('./engine/data/type.js');
 var game1 = Game.create(123456789, "ToTo", 123456789, "ToTo");
+game1.env.addAgent("MOTHER_IA", AgentType.agent.resource, AgentType.resource.plant, 10, 10);
 console.log(game1.toString());
+
+
 
 //var env = Environment.create(game1);
 //console.log(env);

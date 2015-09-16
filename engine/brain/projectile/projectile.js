@@ -5,8 +5,8 @@ var Brain = require('../brain.js');
 
 var ProjectileBrain = Brain.extend({
 
-  init : function(agent) {
-    this._super(agent);
+  init : function() {
+
   },
 
   actionEveryTick : function(){

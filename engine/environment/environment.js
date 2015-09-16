@@ -27,6 +27,10 @@ var Environment = Class.extend({
 
   },
 
+  addAgent : function(team, superType, type, x, y) {
+    this.teams.get(team).addAgent(superType, type, x, y);
+  },
+
   getAgents : function() {
     var agents = LILI.Collections.List.create();
 
@@ -45,40 +49,39 @@ var Environment = Class.extend({
     return this.teams.get(team).getAgents();
   },
 
-  //
-  // destroyAllAgentsDead : function () {
-  //   for (var i = 0; i < this.agents.size; i++) {
-  //     if(!this.agents.get(i).isAlive()){
-  //       this.agents.remove(i);
-  //     }
-  //   }
-  // },
-  //
-  // resetEnv : function () {
-  //   this.agents.clear();
-  // },
-  //
-  // actionEveryTick : function () {
-  //   for (var i = 0; i < this.agents.size; i++) {
-  //     this.agents.get(i).getBrain().actionEveryTick();
-  //   }
-  //
-  //   this.destroyAllAgentsDead();
-  //
-  //   // TODO need refactor
-  //   if(this.game.team1.getNumberOfAgent(AgentType.building.base) === 0) {
-  //     thgis.victoriousTeam = this.game.team1;
-  //   }
-  //   else {
-  //     if(this.game.team2.getNumberOfAgent(AgentType.building.base) === 0) {
-  //       this.victoriousTeam = this.game.team2;
-  //     }
-  //   }
-  // },
-  //
-  // isGameOver : function() {
-  //   return this.victoriousTeam !== undefined;
-  // }
+  destroyAllAgentsDead : function() {
+    for (var i = 0; i < this.teams.size; i++) {
+      this.teams.getContent(i).destroyAllAgentsDead();
+    }
+  },
+
+  reset : function () {
+    for (var i = 0; i < this.teams.size; i++) {
+      this.teams.getContent(i).clear();
+    }
+  },
+
+  actionEveryTick : function () {
+    for (var i = 0; i < this.teams.size; i++) {
+      this.teams.getContent(i).actionEveryTick();
+    }
+
+    this.destroyAllAgentsDead();
+
+    // TODO need refactor
+    if(this.game.team1.getNumberOfAgent(AgentType.building.base) === 0) {
+      thgis.victoriousTeam = this.game.team1;
+    }
+    else {
+      if(this.game.team2.getNumberOfAgent(AgentType.building.base) === 0) {
+        this.victoriousTeam = this.game.team2;
+      }
+    }
+  },
+
+  isGameOver : function() {
+    return this.victoriousTeam !== undefined;
+  },
 
   toString : function() {
     var result = "Environment : ";

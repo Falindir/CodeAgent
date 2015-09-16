@@ -13,7 +13,8 @@ var Agent = Class.extend({
     this.heading = LILI.Math.random(0, 360, true);
     this.hitbox = hitbox;
     this.team = team;
-    this.brain = brain.create(this);
+    this.brain = brain;
+    this.brain.setAgent(this);
     this.superType = AgentType.agent.agent;
     this.type = AgentType.agent.agent;
   },
@@ -44,6 +45,25 @@ var Agent = Class.extend({
 
   collisions : function(object) {
     return this.hitbox.intersect(object.hitbox);
+  },
+
+  setPosition : function(x, y) {
+    this.hitbox.setPosition(x,y);
+  },
+
+  toString : function(){
+    var result = "Agent : " +
+      "\n\tCost : " + this.cost +
+      "\n\tHealth : " + this.health +
+      "\n\tArmor : " + this.armor +
+      "\n\tHeading : " + this.heading +
+      "\n\tHitbox : " + this.hitbox.toString() +
+      "\n\tTeam : " + this.team.name +
+      "\n\tBrain : " + this.brain.toString() +
+      "\n\tSuperType : " + this.superType+
+      "\n\tType : " + this.type;
+
+      return result;
   }
 });
 

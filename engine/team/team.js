@@ -1,5 +1,6 @@
 var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
+var AgentFactory = require('../factory/index.js').agent;
 
 var Team = Class.extend({
 
@@ -38,11 +39,54 @@ var Team = Class.extend({
     return this.getAgentsByType(type).size;
   },
 
+  getAgentInRadiusOfAgent : function(agent, radius) {
+    var agentsRadius = LILI.Collections.List();
+
+    for (var i = 0; i < this.agents.size; i++) {
+      var agt = this.agents.get(i);
+      if(agt.getDistanceFromAgent(agent)) {
+        agentsRadius.add(agt);
+      }
+    }
+  },
+
+  destroyAllAgentsDead : function () {
+    for (var i = 0; i < this.agents.size; i++) {
+      if(!this.agents.get(i).isAlive()){
+        this.agents.remove(i);
+      }
+    }
+  },
+
+  clear : function() {
+    this.agents.clear();
+  },
+
+  addAgent : function(superType, type, x, y) {
+    var agent = (new AgentFactory()).create(superType, type, this);
+    agent.setPosition(x, y);
+    console.log(agent.toString());
+    this.agents.add(agent);
+    console.log(this.agents.size);
+
+  },
+
+  actionEveryTick : function () {
+
+  },
+
   toString : function() {
-    return "Team : " +
+    var result = "Team : " +
       "\n\tType : " + this.type +
       "\n\tName : " + this.name +
-      "\n\tUser : " + this.user;
+      "\n\tUser : " + this.user +
+      "\n\tAgents : " + this.agents.size;
+
+    for (var i = 0; i < this.agents.size; i++) {
+      result += this.agents.get(i).toString();
+    }
+
+    return result;
   }
 
 });

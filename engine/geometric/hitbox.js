@@ -11,6 +11,12 @@ var Hitbox = Class.extend({
         this.contener = Rectangle2D.create(x, y, width, height);
     },
 
+    setPosition : function(x, y) {
+      this.x = x;
+      this.y = y;
+      this.contener = Rectangle2D.create(x, y, this.contener.width, this.contener.height);
+    },
+
     translation : function(alpha, distance) {
 
         var alphaR = LILI.Math.radians(alpha);

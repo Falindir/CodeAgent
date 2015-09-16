@@ -10,6 +10,12 @@ var Soldier = Unit.extend({
 
 
     this.type = AgentType.unit.soldier;
+  },
+
+  fire : function() {
+    //TODO finish
+    //var rocket = (new UnitFactory()).create(AgentType.projectile.rocket);
+    //rocket.live(this);
   }
 
 

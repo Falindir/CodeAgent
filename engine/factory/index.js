@@ -1,4 +1,4 @@
 module.exports = {
-    unit : require('./unitFactory.js'),
+    agent : require('./agentFactory.js'),
     map : require('./mapFactory.js')
 };

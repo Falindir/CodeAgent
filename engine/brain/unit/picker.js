@@ -4,8 +4,7 @@ var UnitBrain = require('./unit.js');
 
 var PickerBrain = UnitBrain.extend({
 
-  init : function(agent) {
-    this._super(agent);
+  init : function() {
 
   },
 

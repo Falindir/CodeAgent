@@ -1,19 +1,19 @@
 /*
 * size hitbox with xD
 * viewDistance with xD
-*
+* all data is temp , need more stable
 */
 
 var Data = {
   agent : {
     unit : {
-      soldier   : {
+      soldier : {
         cost : {
-          plant :
-          mineral :
+          plant : 5,
+          mineral : 10
         },
-        health : ,
-        armor : ,
+        health : 15,
+        armor : 25,
         hitbox : {
           width : 1,
           height : 1
@@ -21,13 +21,13 @@ var Data = {
         viewDistance : 2
       },
 
-      picker    : {
+      picker : {
         cost : {
-          plant :
-          mineral :
+          plant : 10,
+          mineral : 5
         },
-        health : ,
-        armor : ,
+        health : 25,
+        armor : 10,
         hitbox : {
           width : 1,
           height : 1
@@ -37,38 +37,65 @@ var Data = {
     },
 
     building : {
-
+      base : {
+        armor : 100,
+        hitbox : {
+          width : 2,
+          height : 2
+        },
+        bag : {
+          plant : 50,
+          mineral : 50,
+        }
+      }
     },
 
     resource : {
       plant : {
         hitbox : {
-          width : 0.5
+          width : 0.5,
           height : 0.5
         }
       },
 
       mineral : {
         hitbox : {
-          width : 0.5
+          width : 0.5,
           height : 0.5
         }
       }
     },
 
     deposit  : {
+      field : {
+        hitbox : {
+          width : 1.5,
+          height : 1.5
+        },
+        pop : 5
+      },
 
+      mine : {
+        hitbox : {
+          width : 1.5,
+          height : 1.5
+        },
+        pop : 10
+      }
     },
 
     projectile : {
-
+      hitbox : {
+        width : 1.5,
+        height : 1.5
+      },
     },
   },
 
   map : {
     default : {
-      width : 800,
-      height : 800
+      width : 40,
+      height : 40
     }
   }
 };

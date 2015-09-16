@@ -1,13 +1,11 @@
 var Class = require('uberproto');
-var LILI = require('../../lib/lili/lili.js');
-var AgentType = require('../data/type.js');
-var Resource = require('./index.js').resource;
+var AgentType = require('../../data/type.js');
+var Resource = require('./resource.js');
 
 var Plant = Resource.extend({
 
-  init : function(cost, health, hitbox, team, brain) {
-    this._super(cost, health, 0, hitbox, team, brain);
-
+  init : function(hitbox, team, brain) {
+    this._super(hitbox, team, brain);
     this.type = AgentType.resource.plant;
   },
 

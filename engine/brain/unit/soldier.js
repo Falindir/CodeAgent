@@ -4,9 +4,7 @@ var UnitBrain = require('./unit.js');
 
 var SoldierBrain = UnitBrain.extend({
 
-  init : function(agent) {
-    this._super(agent);
-
+  init : function() {
     this.tickToReload = 0;
     this.numberTickForReload = 5; // TODO recup data of level
     this.reloaded = true;
