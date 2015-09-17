@@ -34,7 +34,6 @@ function AgentFactory () {
         var PickerBrain = UnitBrain.picker.create();
         var hitboxPicker = Hitbox.create(0, 0, dataPicker.hitbox.width, dataPicker.hitbox.height);
         unit = Picker.create(dataPicker.cost, dataPicker.health, dataPicker.armor, hitboxPicker, team, PickerBrain, dataPicker.viewDistance);
-        console.log(unit);
         break;
       case AgentType.unit.soldier:
         var Soldier = Unit.soldier;
@@ -42,8 +41,6 @@ function AgentFactory () {
         var SoldierBrain = UnitBrain.soldier.create();
         var hitboxSoldier = Hitbox.create(0, 0, dataSoldier.hitbox.width, dataSoldier.hitbox.height);
         unit = Soldier.create(dataSoldier.cost, dataSoldier.health, dataSoldier.armor, hitboxSoldier, team, SoldierBrain, dataSoldier.viewDistance);
-        console.log(Soldier);
-        console.log(unit);
         break;
       default:
     }

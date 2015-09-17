@@ -63,6 +63,10 @@ var Agent = Class.extend({
       "\n\tSuperType : " + this.superType+
       "\n\tType : " + this.type;
 
+      if (typeof this.bag != 'undefined') {
+        result += "\n\tBag : " + this.bag.toString();
+      }
+
       return result;
   }
 });

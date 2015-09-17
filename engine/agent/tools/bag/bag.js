@@ -1,5 +1,4 @@
 var Class = require('uberproto');
-var LILI = require('../../lib/lili/lili.js');
 
 var Bag = Class.extend({
 
@@ -15,6 +14,13 @@ var Bag = Class.extend({
 
   isFull : function() {
     return this.currentSize === this.size;
+  },
+
+  toString : function() {
+    return "Bag : " +
+      "\n\tElement : " + this.element +
+      "\n\tSize : " + this.size +
+      "\n\tCur : " + this.currentSize;
   }
 
 });

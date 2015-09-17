@@ -12,7 +12,7 @@ var Unit = Agent.extend({
     this.type = AgentType.agent.unit;
 
     this.speed = 1;
-  }
+  },
   // },
   //
   // viewAgent : function(agent2) {
