@@ -68,10 +68,6 @@ var Team = Class.extend({
     this.agents.add(agent);
   },
 
-  actionEveryTick : function () {
-
-  },
-
   toString : function() {
     var result = "Team : " +
       "\n\tType : " + this.type +

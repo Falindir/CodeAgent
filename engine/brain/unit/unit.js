@@ -1,5 +1,4 @@
 var Class = require('uberproto');
-var LILI = require('../../../lib/lili/lili.js');
 var Brain = require('../brain.js');
 
 var UnitBrain = Brain.extend({

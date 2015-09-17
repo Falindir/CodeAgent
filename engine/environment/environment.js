@@ -4,6 +4,7 @@ var LILI = require('../../lib/lili/lili.js');
 var MotherTeam = require('../team/index.js').mother;
 var PlayerTeam = require('../team/index.js').player;
 var MapFactory = require('../factory/index.js').map;
+var AgentType = require('../data/type.js');
 
 var Environment = Class.extend({
 
@@ -13,17 +14,26 @@ var Environment = Class.extend({
     this.teams.insert(this.mother.name, this.mother);
     this.victoriousTeam = undefined;
     this.map = (new MapFactory()).create(mapType);
+    this.tick = 0;
+  },
+
+  setTick : function(tick) {
+    this.tick = tick;
   },
 
   addTeam : function(user, team) {
-    if(!this.teams.contains(team)) {
-      this.teams.insert(team, PlayerTeam.create(team, user, this));
-    }
-    else {
+    var nameTeam = team;
+
+    if(this.teams.contains(team)) {
       var p = this.teams.getAllIndex(team).size;
-      var t = team + "-" + (p + 1);
-      this.teams.insert(t, PlayerTeam.create(user, t, this));
+      nameTeam = team + "-" + (p + 1);
     }
+
+    this.teams.insert(nameTeam, PlayerTeam.create(user, nameTeam, this));
+    var zone = this.map.getZoneForBase();
+    var point = zone.getPointInRadius();
+    this.addAgent(nameTeam, AgentType.agent.building, AgentType.building.base, point.x, point.y);
+
 
   },
 
@@ -68,15 +78,15 @@ var Environment = Class.extend({
 
     this.destroyAllAgentsDead();
 
-    // TODO need refactor
-    if(this.game.team1.getNumberOfAgent(AgentType.building.base) === 0) {
-      thgis.victoriousTeam = this.game.team1;
-    }
-    else {
-      if(this.game.team2.getNumberOfAgent(AgentType.building.base) === 0) {
-        this.victoriousTeam = this.game.team2;
-      }
-    }
+    // // TODO need refactor
+    // if(this.game.team1.getNumberOfAgent(AgentType.building.base) === 0) {
+    //   this.victoriousTeam = this.game.team1;
+    // }
+    // else {
+    //   if(this.game.team2.getNumberOfAgent(AgentType.building.base) === 0) {
+    //     this.victoriousTeam = this.game.team2;
+    //   }
+    // }
   },
 
   isGameOver : function() {
@@ -90,7 +100,7 @@ var Environment = Class.extend({
       result += "\n\t" + this.teams.getContent(i).toString();
     }
 
-    result += "\n\t" + this.map.toString();
+    //result += "\n\t" + this.map.toString();
 
     return result;
   }

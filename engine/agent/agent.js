@@ -57,11 +57,12 @@ var Agent = Class.extend({
       "\n\tHealth : " + this.health +
       "\n\tArmor : " + this.armor +
       "\n\tHeading : " + this.heading +
-      "\n\tHitbox : " + this.hitbox.toString() +
       "\n\tTeam : " + this.team.name +
       "\n\tBrain : " + this.brain.toString() +
       "\n\tSuperType : " + this.superType+
-      "\n\tType : " + this.type;
+      "\n\tType : " + this.type +
+      "\n\tX : " + this.hitbox.x +
+      "\n\tY : " + this.hitbox.y;
 
       if (typeof this.bag != 'undefined') {
         result += "\n\tBag : " + this.bag.toString();

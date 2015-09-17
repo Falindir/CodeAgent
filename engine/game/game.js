@@ -22,11 +22,13 @@ var Game = Class.extend({
   },
 
   update : function() {
-    this.tick++;
+    this.tick++; //TODO put tick in ENV
+    this.env.setTick(this.tick);
 
-    console.log("Game : " + this.id + " - Tick : " + this.tick);
+    //console.log("Game : " + this.id + " - Tick : " + this.tick);
+    this.env.actionEveryTick();
 
-    if(this.tick >= 10000) {
+    if(this.tick >= 3000) {
       clearInterval(this.time);
       console.log("END GAME TIME OUT");
     }

@@ -54,23 +54,16 @@ app.use('*', home);
 
 // TEST
 
-var Game = require('./engine/game/game.js');
-var AgentType = require('./engine/data/type.js');
-var game1 = Game.create(123456789, "ToTo", 123456789, "ToTo");
-game1.env.addAgent("MOTHER_IA", AgentType.agent.resource, AgentType.resource.plant, 10, 10);
-//game1.env.addAgent("ToTo", AgentType.agent.resource, AgentType.resource.mineral, 20, 20);
-
-game1.env.addAgent("ToTo-2", AgentType.agent.building, AgentType.building.base, 50, 50);
-game1.env.addAgent("ToTo-2", AgentType.agent.unit, AgentType.unit.picker, 20, 70);
-game1.env.addAgent("ToTo-2", AgentType.agent.unit, AgentType.unit.soldier, 60, 50);
-
-console.log(game1.toString());
-
-
-
-//var env = Environment.create(game1);
-//console.log(env);
-
+// var Game = require('./engine/game/game.js');
+// var AgentType = require('./engine/data/type.js');
+// var game1 = Game.create(123456789, "ToTo", 123456789, "ToTo");
+// game1.env.addAgent("MOTHER_IA", AgentType.agent.resource, AgentType.resource.plant, 10, 10);
+//
+// game1.env.addAgent("ToTo-2", AgentType.agent.unit, AgentType.unit.picker, 20, 70);
+// game1.env.addAgent("ToTo-2", AgentType.agent.unit, AgentType.unit.soldier, 60, 50);
+//
+// console.log(game1.toString());
+//
 // game1.start();
 
 

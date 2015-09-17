@@ -18,6 +18,10 @@ var PlayerTeam = Team.extend({
     }
 
     return false;
+  },
+
+  actionEveryTick : function () {
+
   }
 
 });
