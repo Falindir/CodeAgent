@@ -14,7 +14,7 @@ var Agent = Class.extend({
     this.hitbox = hitbox;
     this.team = team;
     this.brain = brain;
-    this.brain.setAgent(this);
+    this.brain.setAgent(this); // TODO ritry last method .create(thid)
     this.superType = AgentType.agent.agent;
     this.type = AgentType.agent.agent;
   },

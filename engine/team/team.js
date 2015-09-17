@@ -65,10 +65,7 @@ var Team = Class.extend({
   addAgent : function(superType, type, x, y) {
     var agent = (new AgentFactory()).create(superType, type, this);
     agent.setPosition(x, y);
-    console.log(agent.toString());
     this.agents.add(agent);
-    console.log(this.agents.size);
-
   },
 
   actionEveryTick : function () {

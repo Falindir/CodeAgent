@@ -17,7 +17,7 @@ var Environment = Class.extend({
 
   addTeam : function(user, team) {
     if(!this.teams.contains(team)) {
-      this.teams.insert(team, PlayerTeam.create(user, team, this));
+      this.teams.insert(team, PlayerTeam.create(team, user, this));
     }
     else {
       var p = this.teams.getAllIndex(team).size;

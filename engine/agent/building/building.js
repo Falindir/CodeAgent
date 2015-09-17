@@ -1,6 +1,6 @@
-var LILI = require('../../lib/lili/lili.js');
-var AgentType = require('../data/type.js');
-var Agent = require('../agents.js');
+var Class = require('uberproto');
+var AgentType = require('../../data/type.js');
+var Agent = require('../agent.js');
 
 var Building = Agent.extend({
 
