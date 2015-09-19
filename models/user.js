@@ -9,7 +9,10 @@ var UserSchema = new mongoose.Schema({
     premium: Boolean,
     inscriptionDate: {type: Date, default: Date.now},
     role: String,
-    rank: String
+    elo: Number,
+    rank: String,
+    teams: [{ type: Number, ref: 'Team' }],
+    created: [{ type: Number, ref: 'Team' }]
 });
 
 UserSchema.methods = {

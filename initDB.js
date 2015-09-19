@@ -20,7 +20,10 @@ var u = new User({
   premium: false,
   inscriptionDate: 'Sun Nov 02 2014 11:16:56 GMT+0100 (CET)',
   role: roleUser.user,
-  rank: rankUser.empty
+  elo: 1000,
+  rank: rankUser.empty,
+  teams: [],
+  created: []
 });
 
 u.save(function(err) {
@@ -36,7 +39,10 @@ var admin = new User({
   premium: true,
   inscriptionDate: 'Sun Nov 02 2014 11:16:56 GMT+0100 (CET)',
   role: roleUser.admin,
-  rank: rankUser.adamantite
+  elo: 1000,
+  rank: rankUser.adamantite,
+  teams: [],
+  created: []
 });
 
 admin.save(function(err) {
