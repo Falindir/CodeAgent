@@ -35,13 +35,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 require('./config/passport')(app, passport);
 app.use(passport.initialize());
 app.use(passport.session());
-
-var home = require('./controllers/index').home;
-var login = require('./controllers/index').login;
-var register = require('./controllers/index').register;
-var about = require('./controllers/index').about;
-var contact = require('./controllers/index').contact;
-var account = require('./controllers/index').account;
+var index = require('./controllers/index');
+var home = index.home;
+var login = index.login;
+var register = index.register;
+var about = index.about;
+var contact = index.contact;
+var account = index.account;
+var duel = index.duel;
 
 app.use('/', home);
 app.use('/index', home);
@@ -50,6 +51,7 @@ app.use('/register', register);
 app.use('/about', about);
 app.use('/contact', contact);
 app.use('/account', account);
+app.use('/duel', duel);
 app.use('*', home);
 
 // TEST

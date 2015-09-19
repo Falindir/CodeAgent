@@ -37,6 +37,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="{{#if isHomePage}} active {{/if}}"><a href="/">Home</a></li>
+              {{#if user}}
+            <li class="{{#if isDuelPage}} active {{/if}}"><a href="/duel">Duel</a></li>    
+              {{/if}}
             <li class="{{#if isAboutPage}} active {{/if}}"><a href="/about">About</a></li>
             <li class="{{#if isContactPage}} active {{/if}}"><a href="/contact">Contact</a></li>
             <!-- <li class="dropdown">
