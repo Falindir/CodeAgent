@@ -13,6 +13,7 @@
 <body>
 
   <div class="container-fluid">
+      {{#unless user}}
     <div id="title" class="row">
       <h1> CODE AGENT </h1>
 
@@ -22,7 +23,7 @@
 
     <div id="delimiter" class="row">
     </div>
-
+      {{/unless}}
     <div class="row">
       <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
@@ -38,7 +39,7 @@
           <ul class="nav navbar-nav">
             <li class="{{#if isHomePage}} active {{/if}}"><a href="/">Home</a></li>
               {{#if user}}
-            <li class="{{#if isDuelPage}} active {{/if}}"><a href="/duel">Duel</a></li>    
+            <li class="{{#if isDuelPage}} active {{/if}}"><a href="/duel">Duel</a></li>
               {{/if}}
             <li class="{{#if isAboutPage}} active {{/if}}"><a href="/about">About</a></li>
             <li class="{{#if isContactPage}} active {{/if}}"><a href="/contact">Contact</a></li>
