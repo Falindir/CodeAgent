@@ -4,12 +4,15 @@ var passport = require('passport');
 var User = mongoose.model('User');
 
 login.get('/', function(req, res) {
-
+  if(req.user === undefined) {
     res.render('partials/login', {
         title : 'Code Agent - Login',
         isLoginPage : true
     });
-
+  }
+  else {
+    res.redirect('/');
+  }
 });
 
 login.post('/',

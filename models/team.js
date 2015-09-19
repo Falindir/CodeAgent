@@ -7,8 +7,8 @@ var TeamSchema = new mongoose.Schema({
     elo: Number,
     rank: String,
     creationDate: { type: Date, default: Date.now },
-    creator: { type: Number, ref: 'User' },
-    members: [{ type: Number, ref: 'User' }]
+    creator: { type: mongoose.Schema.ObjectId, ref: 'User' },
+    members: [{ type: mongoose.Schema.ObjectId, ref: 'User' }]
 
 });
 

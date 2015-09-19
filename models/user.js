@@ -11,8 +11,8 @@ var UserSchema = new mongoose.Schema({
     role: String,
     elo: Number,
     rank: String,
-    teams: [{ type: Number, ref: 'Team' }],
-    created: [{ type: Number, ref: 'Team' }]
+    teams: [{ type: mongoose.Schema.ObjectId, ref: 'Team' }],
+    created: [{ type: mongoose.Schema.ObjectId, ref: 'Team' }]
 });
 
 UserSchema.methods = {
