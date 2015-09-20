@@ -5,5 +5,6 @@ module.exports = {
     about : require('./aboutController.js'),
     contact : require('./contactController.js'),
     account : require('./accountController.js'),
-    duel : require('./duelController.js')
+    duel : require('./duelController.js'),
+    teams : require('./teamsController.js')
 };

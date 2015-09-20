@@ -43,6 +43,7 @@ var about = index.about;
 var contact = index.contact;
 var account = index.account;
 var duel = index.duel;
+var teams = index.teams;
 
 app.use('/', home);
 app.use('/index', home);
@@ -52,6 +53,7 @@ app.use('/about', about);
 app.use('/contact', contact);
 app.use('/account', account);
 app.use('/duel', duel);
+app.use('/teams', teams);
 app.use('*', home);
 
 // TEST
