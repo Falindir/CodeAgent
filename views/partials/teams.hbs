@@ -1,11 +1,43 @@
 <div class="row">
 
   <div class="container">
-    <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> New Team</a>
+    <button id="newTeamButton" type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> New Team</button>
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="creationTeamModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form action="/teams/new" method="post" id="newTeamform" class="form-horizontal" role="form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="creationTeamModal">New Team :</h4>
+          </div>
+          <div class="modal-body">
+            <div style="margin-bottom: 25px" class="form-group">
+              <label for="newTeam-name" class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-10">
+                <input id="newTeam-name" type="text" class="form-control input-lg" name="name" value="" placeholder="name" autofocus required>
+              </div>
+            </div>
+            <div style="margin-bottom: 25px" class="form-group">
+              <label for="newTeam-description" class="col-sm-2 control-label">Description</label>
+              <div class="col-sm-10">
+                <input id="newTeam-description" type="text" class="form-control input-lg" name="description" value="" placeholder="description" required>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <button id="btn-register"type="submit" class="btn btn-primary btn-success">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
   <div class="container">
     <h2>Team created</h2>
+    {{#if teamsUser.length}}
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -16,29 +48,25 @@
         </tr>
       </thead>
       <tbody>
+          {{#each teamsUser}}
         <tr>
-          <td><a href="#">First T</a></td>
-          <td>No Rank</td>
-          <td>First team</td>
+          <td><a href="#">{{name}}</a></td>
+          <td>{{rank}}</td>
+          <td>{{description}}</td>
           <td>
             <a href="#" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-edit"></span> Edit</a>
             <a href="#" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-minus"></span> Delete</a>
           </td>
         </tr>
-        <tr>
-          <td><a href="#">Soldier</a></td>
-          <td>Cooper</td>
-          <td>team based of soldier</td>
-          <td>
-            <a href="#" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-            <a href="#" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-minus"></span> Delete</a>
-          </td>
-        </tr>
+          {{/each}}
       </tbody>
     </table>
+    {{else}}
+      <p> You don't have team </p>
+    {{/if}}
   </div>
 
-  <div class="container">
+  {{!-- <div class="container">
     <h2>Other Team</h2>
     <table class="table table-bordered">
       <thead>
@@ -60,5 +88,12 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div> --}}
 </div>
+
+<script type="text/javascript">
+  $("#newTeamButton").click(function(){
+    $("#newTeam-name").val('');
+    $("#newTeam-description").val('');
+  });
+</script>
