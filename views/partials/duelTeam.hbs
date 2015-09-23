@@ -2,7 +2,8 @@
 
   <button id="startDuelTeam" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-play"></span> Start duel</button>
 
-
+  <input id="userTeam" type="hidden" value="{{team1}}">
+  <input id="otherTeam" type="hidden" value="{{team2}}">
 
 </div>
 
@@ -10,6 +11,15 @@
   var socket = io();
 
   $("#startDuelTeam").click(function(){
-    socket.emit('duel', 'start');
+    socket.emit('duel', {type : 'start', id1 : $("#userTeam").val(), id2 : $("#otherTeam").val()});
   });
+
+  socket.on('test', function(msg){
+    console.log(msg);
+  });
+
+  socket.on('tick', function(msg){
+    console.log(msg);
+  });
+
 </script>

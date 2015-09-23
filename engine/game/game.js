@@ -4,7 +4,7 @@ var Environment = require('../environment/environment.js');
 
 var Game = Class.extend({
 
-  init : function(u1, t1, u2, t2, mapType) {
+  init : function(u1, t1, u2, t2, mapType, socket) {
     this.id = uuid.v1();
     this.env = Environment.create(mapType);
     this.env.addTeam(u1, t1);
@@ -15,6 +15,8 @@ var Game = Class.extend({
     this.time = null;
 
     this.run = false;
+
+    this.socket = socket;
   },
 
   isSameGame : function(g2) {
@@ -25,7 +27,9 @@ var Game = Class.extend({
     this.tick++; //TODO put tick in ENV
     this.env.setTick(this.tick);
 
-    //console.log("Game : " + this.id + " - Tick : " + this.tick);
+    console.log("Game : " + this.id + " - Tick : " + this.tick);
+    this.socket.emit('tick', this.tick);
+
     this.env.actionEveryTick();
 
     if(this.tick >= 3000) {
