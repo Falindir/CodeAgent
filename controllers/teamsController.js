@@ -60,7 +60,7 @@ teams.get('/details', function(req, res) {
         });
       }
       else {
-        res.redirect('/');
+        res.redirect('/teams');
       }
     });
   }
@@ -69,5 +69,26 @@ teams.get('/details', function(req, res) {
   }
 
 });
+
+teams.get('/delete', function(req, res) {
+  if(req.query.id !== undefined) {
+    Team.findOne({_id: req.query.id}, function(err, t) {
+      if(t !== undefined) {
+        t.remove(function (err) {
+            if (err) {
+                next(err);
+            }
+        });
+      }
+
+      res.redirect('/teams');
+    });
+  }
+  else {
+    res.redirect('/');
+  }
+
+});
+
 
 module.exports = teams;

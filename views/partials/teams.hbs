@@ -55,7 +55,23 @@
           <td>{{description}}</td>
           <td>
             <a href="#" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-edit"></span> Use</a>
-            <a href="#" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-minus"></span> Delete</a>
+            <button id="deleteTeamButton{{_id}}" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteTeamModal{{_id}}"><span class="glyphicon glyphicon-minus"></span> Delete</button>
+            <div class="modal fade" id="deleteTeamModal{{_id}}" tabindex="-1" role="dialog" aria-labelledby="removeTeamModal">
+              <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="removeTeamModal{{_id}}">Delete Team : {{name}}</h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                      <a href="/teams/delete?id={{_id}}" class="btn btn-primary btn-success">Confirm delete</a>
+                    </div>
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
           {{/each}}
