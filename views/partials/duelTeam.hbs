@@ -1,0 +1,15 @@
+<div class="row">
+
+  <button id="startDuelTeam" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-play"></span> Start duel</button>
+
+
+
+</div>
+
+<script>
+  var socket = io();
+
+  $("#startDuelTeam").click(function(){
+    socket.emit('duel', 'start');
+  });
+</script>

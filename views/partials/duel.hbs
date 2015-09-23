@@ -1,5 +1,33 @@
 <div class="row">
 
-  DUEL PAGE
+  <div class="container">
+    <h2>Team</h2>
+    {{#if teams.length}}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>rank</th>
+          <th>description</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each teams}}
+        <tr>
+          <td><a href="/teams/details?id={{_id}}">{{name}}</a></td>
+          <td>{{rank}}</td>
+          <td>{{description}}</td>
+          <td>
+            <a href="/duel/team?id={{_id}}" class="btn btn-ls btn-danger">Duel</a>
+          </td>
+        </tr>
+          {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p> No Team for duel </p>
+    {{/if}}
 
-</div>  
+  </div>
+</div>

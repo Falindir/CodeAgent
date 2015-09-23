@@ -12,7 +12,9 @@ var express       = require('express'),
     layout        = require('express-layout'),
     mongoose      = require('mongoose'),
     passport      = require('passport'),
-    config        = require('config');
+    config        = require('config'),
+    JsonSocket    = require('json-socket');
+
 
 // configure database
 require('./config/database')(app, mongoose);
@@ -71,6 +73,7 @@ app.use('*', home);
 // game1.start();
 
 
+io.on('connection', duel.respond);
 
 
 server.listen(3000);
