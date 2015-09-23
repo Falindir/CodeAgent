@@ -50,11 +50,11 @@
       <tbody>
           {{#each teamsUser}}
         <tr>
-          <td><a href="/teams/details?id={{id}}">{{name}}</a></td>
+          <td><a href="/teams/details?id={{_id}}">{{name}}</a></td>
           <td>{{rank}}</td>
           <td>{{description}}</td>
           <td>
-            <a href="#" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-edit"></span> Use</a>
+            <a href="/teams/developing?id={{_id}}" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-edit"></span> Use</a>
             <button id="deleteTeamButton{{_id}}" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteTeamModal{{_id}}"><span class="glyphicon glyphicon-minus"></span> Delete</button>
             <div class="modal fade" id="deleteTeamModal{{_id}}" tabindex="-1" role="dialog" aria-labelledby="removeTeamModal">
               <div class="modal-dialog modal-sm" role="document">

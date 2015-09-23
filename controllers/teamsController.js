@@ -93,5 +93,27 @@ teams.get('/delete', function(req, res) {
 
 });
 
+teams.get('/developing', function(req, res) { // TODO verif if user equals creator
+  if(req.query.id !== undefined) {
+    Team.find({_id: req.query.id}, function(err, t) {
+      if(t !== undefined) {
+        res.render('partials/teamsCode', {
+            title : 'Code Agent - Brain',
+            isTeamsCodingPage : true,
+            user : req.user,
+            team : t[0]
+        });
+      }
+      else {
+        res.redirect('/');
+      }
+    });
+  }
+  else {
+    res.redirect('/');
+  }
+
+});
+
 
 module.exports = teams;
