@@ -6,9 +6,6 @@ var Team = mongoose.model('Team');
 
 teams.get('/', function(req, res) {
   if(req.user !== undefined) {
-
-    var teams;
-
     Team.find({creator: req.user._id}, function(err, t) {
       res.render('partials/teams', {
           title : 'Code Agent - Teams',
@@ -44,6 +41,28 @@ teams.post('/new', function(req, res) {
     });
 
     res.redirect('/');
+  }
+  else {
+    res.redirect('/');
+  }
+
+});
+
+teams.get('/details', function(req, res) {
+  if(req.query.id !== undefined) {
+    Team.find({_id: req.query.id}, function(err, t) {
+      if(t !== undefined) {
+        res.render('partials/teamsDetails', {
+            title : 'Code Agent - Team',
+            isTeamsDetailsPage : true,
+            user : req.user,
+            team : t[0]
+        });
+      }
+      else {
+        res.redirect('/');
+      }
+    });
   }
   else {
     res.redirect('/');

@@ -1,10 +1,10 @@
 <div class="row">
 
   <div class="container">
-    <button id="newTeamButton" type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> New Team</button>
+    <button id="newTeamButton" type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#newTeamModal"><span class="glyphicon glyphicon-plus"></span> New Team</button>
   </div>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="creationTeamModal">
+  <div class="modal fade" id="newTeamModal" tabindex="-1" role="dialog" aria-labelledby="creationTeamModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form action="/teams/new" method="post" id="newTeamform" class="form-horizontal" role="form">
@@ -50,11 +50,11 @@
       <tbody>
           {{#each teamsUser}}
         <tr>
-          <td><a href="#">{{name}}</a></td>
+          <td><a href="/teams/details?id={{id}}">{{name}}</a></td>
           <td>{{rank}}</td>
           <td>{{description}}</td>
           <td>
-            <a href="#" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+            <a href="#" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-edit"></span> Use</a>
             <a href="#" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-minus"></span> Delete</a>
           </td>
         </tr>
