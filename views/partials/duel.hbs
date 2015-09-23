@@ -13,21 +13,63 @@
         </tr>
       </thead>
       <tbody>
-          {{#each teams}}
+        {{#each teams}}
         <tr>
           <td><a href="/teams/details?id={{_id}}">{{name}}</a></td>
           <td>{{rank}}</td>
           <td>{{description}}</td>
           <td>
-            <a href="/duel/team?id={{_id}}" class="btn btn-ls btn-danger">Duel</a>
+            <button id="{{_id}}" data-toggle="modal" data-target="#duelTeamModal" type="button" class="btn btn-ls btn-danger chooseTeamButton">Duel</button>
           </td>
         </tr>
-          {{/each}}
+        {{/each}}
       </tbody>
     </table>
     {{else}}
     <p> No Team for duel </p>
     {{/if}}
 
+    <div class="modal fade" id="duelTeamModal" tabindex="-1" role="dialog" aria-labelledby="fightTeamModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <form action="/duel/team" method="get" id="duelTeamform" class="form-horizontal" role="form">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="fightTeamModal">Choose your team for duel :</h4>
+            </div>
+            <div class="modal-body">
+              {{#if userTeam.length}}
+              <div class="form-group">
+                <label class="col-xs-3 control-label">Your Team :</label>
+                <div class="col-xs-9 selectContainer">
+                  <select name="id" class="form-control">
+                    {{#each userTeam}}
+                    <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                  </select>
+                  <input id="otherTeam" type="hidden" name="id2" value="">
+                </div>
+              </div>
+              {{else}}
+              <p> You don't have team </p>
+              {{/if}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                {{#if userTeam.length}}
+              <button id="btn-duel"type="submit" class="btn btn-primary btn-success" >Duel</button>
+              {{/if}}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
+
+<script type="text/javascript">
+  $(".btn.btn-ls.btn-danger.chooseTeamButton").click(function(){
+    $("#otherTeam").val($(this).attr('id'));
+  });
+</script>

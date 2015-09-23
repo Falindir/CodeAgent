@@ -6,11 +6,14 @@ var User = mongoose.model('User');
 duel.get('/', function(req, res) {
   if(req.user !== undefined) {
     Team.find({}, function(err, t) {
-      res.render('partials/duel', {
-          title : 'Code Agent - Duel',
-          isDuelPage : true,
-          user : req.user,
-          teams : t
+      Team.find({creator: req.user._id}, function(err, userT) {
+        res.render('partials/duel', {
+            title : 'Code Agent - Duel',
+            isDuelPage : true,
+            user : req.user,
+            teams : t,
+            userTeam : userT
+        });
       });
     });
   }
