@@ -52,15 +52,18 @@ teams.get('/details', function(req, res) {
   if(req.query.id !== undefined) {
     Team.find({_id: req.query.id}, function(err, t) {
       if(t !== undefined) {
-        res.render('partials/teamsDetails', {
-            title : 'Code Agent - Team',
-            isTeamsDetailsPage : true,
-            user : req.user,
-            team : t[0]
+        User.findOne({_id: t[0].creator} ,function (err, c) {
+          res.render('partials/teamsDetails', {
+              title : 'Code Agent - Team',
+              isTeamsDetailsPage : true,
+              user : req.user,
+              team : t[0],
+              creator : c
+          });
         });
       }
       else {
-        res.redirect('/teams');
+        res.redirect('/');
       }
     });
   }
