@@ -72,8 +72,7 @@ app.use('*', home);
 //
 // game1.start();
 
-var toto = "toto";
-io.on('connection', duel.respond, toto);
+io.on('connection', duel.respond);
 
 
 server.listen(3000);

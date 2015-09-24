@@ -52,24 +52,30 @@ duel.get('/team', function(req, res) {
 duel.respond = function(socket){
   console.log('a user connected');
 
+  var game;
+
+  // TODO verif game not undefined
+
   socket.on('duel', function(msg){
     console.log(msg);
-    if(msg.type === 'start') {
-      var game = Game.create(msg.id1, "ToTo", msg.id2, "ToTo", AgentType.map.default, socket);
+
+  if(msg.type === 'start') {
+      game = Game.create(msg.id1, "ToTo", msg.id2, "ToTo", AgentType.map.default, socket);
       game.start();
 
       socket.emit('test', "HI CLIENT");
     }
     else if (msg === 'stop') {
-
+      game.stop();
     }
     else if (msg === 'pause') {
-
+      // TODO the game is in pause ?
     }
   });
 
   socket.on('disconnect', function(){
     console.log('user disconnected');
+    game.stop();
   });
 };
 

@@ -16,8 +16,6 @@ var MotherTeam = Team.extend({
       var origin = LILI.Geometric.Point2D.create(0,0);
       var point = LILI.Geometric.generatePoint2DInCircleZone(origin, this.env.map.radius, 0);
       // TODO create plant
-
-      
     }
   }
 

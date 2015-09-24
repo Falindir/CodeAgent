@@ -28,7 +28,7 @@ var Game = Class.extend({
     this.env.setTick(this.tick);
 
     console.log("Game : " + this.id + " - Tick : " + this.tick);
-    this.socket.emit('tick', this.tick);
+    this.socket.emit('tick', this.env.getJSON());
 
     this.env.actionEveryTick();
 
@@ -60,8 +60,8 @@ var Game = Class.extend({
   },
 
   stop : function() {
-
-
+    clearInterval(this.time);
+    console.log("END GAME FORCE END");
   },
 
   toString : function() {

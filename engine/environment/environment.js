@@ -93,6 +93,16 @@ var Environment = Class.extend({
     return this.victoriousTeam !== undefined;
   },
 
+  getJSON : function() {
+    var test = {
+      t : "1",
+      u : "2",
+      v : "3"
+    };
+
+    return test;
+  },
+
   toString : function() {
     var result = "Environment : ";
 
