@@ -80,13 +80,11 @@ console.log("Brain" + Brain.default);
 var obj = {master: {action: {when:{action:"nothing"}, do: {action:"idle"}}}};
 var Utils = require('./config/util.js');
 
-
 console.log(Utils.buildObjectToXml(obj));
 
 console.log("BITE");
 
-console.log(Utils.parseXmlString('<?xml version="1.0" encoding="UTF-8"?><master><actionUser><when><action>nothing</action></when><do><action>idle</action></do></actionUser></master>').master.actionUser);
-
+console.log(Utils.parseXmlString('<?xml version="1.0" encoding="UTF-8"?><master><actionUser><when><state>blocked</state></when><do><heading>random</heading></do></actionUser><actionUser><when><state>nothing</state></when><do><action>move</action></do></actionUser></master>'));
 
 
 server.listen(3000);
