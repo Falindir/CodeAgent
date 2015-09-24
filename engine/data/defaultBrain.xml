@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<master>
+    <actionUser>
+        <when>
+            <nothing>
+            </nothing>
+        </when>
+        <do>
+            <action>
+                <idle/>
+            </action>
+        </do>
+    </actionUser>
+</master>

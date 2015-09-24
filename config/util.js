@@ -1,4 +1,6 @@
 var crypto = require('crypto');
+var fs     = require('fs');
+var xml2js = require('xml2js');
 
 module.exports = {
 
@@ -17,5 +19,38 @@ module.exports = {
         }
 
         return string;
+    },
+
+    parseXmlFile: function(path) { // TODO bug
+      var parser = new xml2js.Parser();
+      var object;
+
+      fs.readFile(path, function(err, data) {
+          parser.parseString(data, function (err, result) {
+              object = result;
+          });
+      });
+
+      return object;
+    },
+
+    parseXmlString: function(data) {
+      var object;
+      var parser = new xml2js.Parser();
+
+      parser.parseString(data, function (err, result) {
+        object = result;
+      });
+
+      return object;
+    },
+
+    buildObjectToXml: function(object) {
+      var xml;
+
+      var builder = new xml2js.Builder();
+      xml = builder.buildObject(object);
+
+      return xml;
     }
 };

@@ -74,5 +74,19 @@ app.use('*', home);
 
 io.on('connection', duel.respond);
 
+var Brain = require('./engine/data/brain.js');
+console.log("Brain" + Brain.default);
+
+var obj = {master: {action: {when:{action:"nothing"}, do: {action:"idle"}}}};
+var Utils = require('./config/util.js');
+
+
+console.log(Utils.buildObjectToXml(obj));
+
+console.log("BITE");
+
+console.log(Utils.parseXmlString('<?xml version="1.0" encoding="UTF-8"?><master><actionUser><when><action>nothing</action></when><do><action>idle</action></do></actionUser></master>').master.actionUser);
+
+
 
 server.listen(3000);
