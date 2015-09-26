@@ -28,7 +28,7 @@
     console.log('Lixi.ls : ' + LIXI.VERSION + " - author : " + LIXI.AUTHOR);
   };
 
-  LIXI.Cursor = {
+  LIXI.CURSOR = {
     default : 'default',
     pointer  : 'pointer'
   };
@@ -48,7 +48,7 @@
       this.sprite.visible       = true;
       this.sprite.interactive   = false;
       this.sprite.buttonMode    = false;
-      this.sprite.defaultCursor = LIXI.Cursor.default;
+      this.sprite.defaultCursor = LIXI.CURSOR.default;
       this.sprite.zIndex        = 0;
     },
 
@@ -139,6 +139,38 @@
 
     setTexture : function (texture) {
       this.sprite.setTexture(texture);
+    }
+
+  });
+
+  var SpriteSheet = LILI.Class.extend({
+
+    init : function(sheet, height, width, blockH, blockW) {
+      this.sheet       = PIXI.Texture.fromImage(sheet);
+      this.height      = height;
+      this.width       = width;
+      this.blockHeight = blockH;
+      this.blockWidth  = blockW;
+      this.blocks      = new LILI.Collections.List();
+      this.blocksN     = new LILI.Collections.Map();
+    },
+
+    cut : function () {
+      for (var i = 0; i < this.height / this.blockHeight; i++) {
+        for (var j = 0; j < this.width / this.blockWidth; j++) {
+          var blockPosition = new PIXI.Rectangle(j * this.blockWidth, i * this.blockHeight, this.blockWidth, this.blockHeight);
+          var blockTexture = new PIXI.Texture(this.sheet.baseTexture, blockPosition);
+          this.blocks.add(blockTexture);
+        }
+      }
+    },
+
+    addName : function (name, index) {
+      this.blocksN.insert(name, this.blocks.get(index));
+    },
+
+    getBlock : function (name) {
+      return this.blocksN.get(name);
     }
 
   });
