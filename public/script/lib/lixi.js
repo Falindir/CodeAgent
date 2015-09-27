@@ -33,6 +33,17 @@
     pointer  : 'pointer'
   };
 
+  LIXI.Compare = {};
+
+  LIXI.Compare.zIndex = function (a,b) {
+    if (a.zIndex < b.zIndex)
+      return -1;
+    if (a.zIndex > b.zIndex)
+      return 1;
+
+    return 0;
+  };
+
   LIXI.Sprite = LILI.Class.extend({
 
     init : function(texture) {
@@ -143,7 +154,7 @@
 
   });
 
-  var SpriteSheet = LILI.Class.extend({
+  LIXI.SpriteSheet = LILI.Class.extend({
 
     init : function(sheet, height, width, blockH, blockW) {
       this.sheet       = PIXI.Texture.fromImage(sheet);
@@ -174,6 +185,21 @@
     }
 
   });
+
+  LIXI.Button = LIXI.Sprite.extend({
+
+    init : function(name, texture) {
+    	this._super(texture);
+  		this.name   = name;
+  		this.type   = -1;
+  		this.isDown = false;
+  		this.setInteractive(true);
+  		this.setButtonMode(true);
+  		this.setCursor(LIXI.CURSOR.pointer);
+    }
+  });
+
+  LIXI.Editor = {};
 
   LIXI.sayHello();
 
