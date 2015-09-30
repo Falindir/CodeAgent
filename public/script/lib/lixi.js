@@ -279,7 +279,10 @@
       this.container     = $(cnt)[0];
       this.renderer      = new PIXI.autoDetectRenderer(this.container.offsetWidth,this.container.offsetHeight,{backgroundColor : color});
       this.stage         = new PIXI.Container();
-      this.backGround    = new LIXI.Background(this.stage, backgroundTexture, 2000, 2000, 0.3);
+
+      if(!LILI.isUndefined(backgroundTexture))
+        this.backGround    = new LIXI.Background(this.stage, backgroundTexture, 2000, 2000, 0.3);
+
       this.camera        = new LIXI.Camera(this.stage);
       this.hud           = new LIXI.Camera(this.stage);
 
