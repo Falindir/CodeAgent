@@ -84,7 +84,7 @@
 
   LILI.Collections = {};
 
-  LILI.Collections.List = Class.extend({
+  LILI.Collections.List = LILI.Class.extend({
 
     init : function() {
       this.collections = [];
@@ -185,7 +185,7 @@
     }
   });
 
-  LILI.Collections.Map = Class.extend({
+  LILI.Collections.Map = LILI.Class.extend({
 
     init : function() {
       this.keys = new LILI.Collections.List();

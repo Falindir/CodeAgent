@@ -57,13 +57,19 @@ duel.respond = function(socket){
   // TODO verif game not undefined
 
   socket.on('duel', function(msg){
-    console.log(msg);
 
   if(msg.type === 'start') {
       game = Game.create(msg.id1, "ToTo", msg.id2, "ToTo", AgentType.map.default, socket);
       game.start();
 
-      socket.emit('test', "HI CLIENT");
+      // console.log("RT");
+      // console.log(game.env.getInitMessage());
+      // console.log(socket);
+      // socket.emit('init', game.env.getInitMessage());
+      var initMessage = game.env.getInitMessage();
+      console.log(initMessage);
+      socket.emit('init', {data : initMessage.players});
+
     }
     else if (msg === 'stop') {
       game.stop();
@@ -75,7 +81,8 @@ duel.respond = function(socket){
 
   socket.on('disconnect', function(){
     console.log('user disconnected');
-    game.stop();
+    if(game !== undefined)
+      game.stop();
   });
 };
 

@@ -1,6 +1,6 @@
 var Class = require('uberproto');
 var LILI = require('../../lib/lili/lili.js');
-// var AgentType = require('../data/type.js');
+var TeamType = require('../data/index.js').team;
 var MotherTeam = require('../team/index.js').mother;
 var PlayerTeam = require('../team/index.js').player;
 var MapFactory = require('../factory/index.js').map;
@@ -29,7 +29,7 @@ var Environment = Class.extend({
       nameTeam = team + "-" + (p + 1);
     }
 
-    this.teams.insert(nameTeam, PlayerTeam.create(user, nameTeam, this));
+    this.teams.insert(nameTeam, PlayerTeam.create(nameTeam, user, this));
     var zone = this.map.getZoneForBase();
     var point = zone.getPointInRadius();
     this.addAgent(nameTeam, AgentType.agent.building, AgentType.building.base, point.x, point.y);
@@ -101,6 +101,36 @@ var Environment = Class.extend({
     };
 
     return test;
+  },
+
+  getInitMessage : function() {
+
+
+    var playersTab = [];
+    var mother;
+
+    var index = 0;
+    for (var i = 0; i < this.teams.size; i++) {
+      var p = this.teams.getContent(i);
+      if(p.type != TeamType.mother) {
+        // playersTab[index] = p;
+        playersTab.push({
+          name : p.name,
+          user : p.user
+        });
+        index++;
+      }
+      else {
+        mother = p;
+      }
+    }
+
+    var world = {
+      players : playersTab
+
+    };
+
+    return world;
   },
 
   toString : function() {

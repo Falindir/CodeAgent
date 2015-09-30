@@ -73,7 +73,6 @@ app.use('*', home);
 // game1.start();
 
 io.on('connection', duel.respond);
-
 var Brain = require('./engine/data/brain.js');
 console.log("Brain" + Brain.default);
 

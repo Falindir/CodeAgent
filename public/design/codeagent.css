@@ -121,3 +121,11 @@ body {
 #caMoreInfo {
   text-align: center;
 }
+
+.Editor {
+  margin-top:5px;
+  margin-left:25px;
+  margin-right:25px;
+  margin-bottom:25px;
+
+}

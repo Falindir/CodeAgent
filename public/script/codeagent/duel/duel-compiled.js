@@ -1,3 +1,12 @@
+var Texture = {};
+
+Texture.HUD = {};
+
+Texture.HUD.button = {};
+
+Texture.HUD.button.playButton = PIXI.Texture.fromImage("../../../assets/run.png");
+
+
 
 
 var DuelEditor = LIXI.Stream.extend({
@@ -34,3 +43,5 @@ function animateDuelEditorComplete() {
   duelEditor.resizeStream();
   duelEditor.renderStream();
 }
+
+

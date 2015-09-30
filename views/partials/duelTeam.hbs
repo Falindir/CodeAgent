@@ -1,25 +1,40 @@
 <div class="row">
 
-  <button id="startDuelTeam" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-play"></span> Start duel</button>
+  {{!-- <button id="startDuelTeam" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-play"></span> Start duel</button> --}}
+
+
+  <div id="duelStream"class="Editor">
+
+    {{!-- DUEL --}}
+
+  </div>
 
   <input id="userTeam" type="hidden" value="{{team1}}">
   <input id="otherTeam" type="hidden" value="{{team2}}">
 
 </div>
 
+<script type="text/javascript" src="/script/codeagent/duel/duel-compiled.js"></script>
+
 <script>
   var socket = io();
-
-  $("#startDuelTeam").click(function(){
-    socket.emit('duel', {type : 'start', id1 : $("#userTeam").val(), id2 : $("#otherTeam").val()});
-  });
-
-  socket.on('test', function(msg){
-    console.log(msg);
-  });
 
   socket.on('tick', function(msg){
     console.log(msg.u);
   });
+
+  socket.on('init', function(msg){
+    console.log(msg);
+  });
+
+  var model = {
+    id1 : $("#userTeam").val(),
+    id2 : $("#otherTeam").val()
+  }
+
+  duelEditor = new DuelEditor('#duelStream', 0x00FFFF, socket, model);
+  duelEditor.initStream();
+  animateDuelEditorComplete();
+  duelEditor.initEditor();
 
 </script>

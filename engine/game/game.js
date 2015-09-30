@@ -2,6 +2,7 @@ var Class = require('uberproto');
 var uuid = require('node-uuid');
 var Environment = require('../environment/environment.js');
 
+
 var Game = Class.extend({
 
   init : function(u1, t1, u2, t2, mapType, socket) {

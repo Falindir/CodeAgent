@@ -20,6 +20,8 @@
 
   var LIXI = LIXI || {};
 
+  var LILI = window.LILI;
+
   LIXI.VERSION = "v0.0.1";
 
   LIXI.AUTHOR = "Falindir";
@@ -306,11 +308,13 @@
     },
 
     resizeStream : function () {
-      this.renderer.resize(this.container.offsetWidth-1, this.container.offsetHeight-1);
-      this.coordCenterX = this.container.offsetWidth-1 / 2;
-      this.coordCenterY = this.container.offsetHeight-1 / 2;
-      this.backGround.tilingSprite.height = this.container.offsetHeight / 0.3;
-      this.backGround.tilingSprite.width = this.container.offsetWidth / 0.3;
+      this.renderer.resize(this.container.offsetWidth, this.container.offsetHeight);
+      this.coordCenterX = this.container.offsetWidth / 2;
+      this.coordCenterY = this.container.offsetHeight / 2;
+      if(!LILI.isUndefined(this.backGround)) {
+        this.backGround.tilingSprite.height = this.container.offsetHeight / 0.3;
+        this.backGround.tilingSprite.width = this.container.offsetWidth / 0.3;
+      }
     },
 
     renderStream : function () {
