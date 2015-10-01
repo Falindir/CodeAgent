@@ -23,9 +23,7 @@
     console.log(msg.u);
   });
 
-  socket.on('init', function(msg){
-    console.log(msg);
-  });
+
 
   var model = {
     id1 : $("#userTeam").val(),
@@ -36,5 +34,10 @@
   duelEditor.initStream();
   animateDuelEditorComplete();
   duelEditor.initEditor();
+
+  socket.on('init', function(msg){
+    console.log(msg);
+    duelEditor.initGame(msg);
+  });
 
 </script>

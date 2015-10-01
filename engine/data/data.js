@@ -94,8 +94,8 @@ var Data = {
 
   map : {
     default : {
-      width : 40,
-      height : 40
+      width : 600,
+      height : 600
     }
   }
 };

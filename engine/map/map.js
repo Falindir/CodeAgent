@@ -7,8 +7,8 @@ var Map = Class.extend({
 
   init : function(width, height) {
     this.type = undefined;
-    this.x = 0;
-    this.y = 0;
+    this.x = width / 2;
+    this.y = height / 2;
     this.width = width;
     this.height = height;
     this.radius = LILI.Math.percentageCalculator(Math.min(this.width, this.height), -20) / 2;

@@ -68,7 +68,11 @@ duel.respond = function(socket){
       // socket.emit('init', game.env.getInitMessage());
       var initMessage = game.env.getInitMessage();
       console.log(initMessage);
-      socket.emit('init', {data : initMessage.players});
+      socket.emit('init', {players : initMessage.players,
+                           mother : initMessage.mother,
+                           agents : initMessage.agents,
+                           map : initMessage.map
+      });
 
     }
     else if (msg === 'stop') {

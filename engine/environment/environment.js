@@ -109,11 +109,12 @@ var Environment = Class.extend({
     var playersTab = [];
     var mother;
 
+    var agentsTab = [];
+
     var index = 0;
     for (var i = 0; i < this.teams.size; i++) {
       var p = this.teams.getContent(i);
       if(p.type != TeamType.mother) {
-        // playersTab[index] = p;
         playersTab.push({
           name : p.name,
           user : p.user
@@ -121,12 +122,40 @@ var Environment = Class.extend({
         index++;
       }
       else {
-        mother = p;
+        mother = {
+          name : p.name
+        };
+      }
+
+      var agents = p.getAgents();
+
+      for (var j = 0; j < agents.size; j++) {
+
+        var agent = agents.get(j);
+
+        agentsTab.push({
+          superType : agent.superType,
+          type : agent.type,
+          team : agent.team.name,
+          x : agent.hitbox.x,
+          y : agent.hitbox.y
+        });
       }
     }
 
+    var mapData = {
+      type : this.map.type,
+      x : this.map.x,
+      y : this.map.y,
+      width : this.map.width,
+      height : this.map.height
+    };
+
     var world = {
-      players : playersTab
+      players : playersTab,
+      mother : mother,
+      agents : agentsTab,
+      map : mapData
 
     };
 

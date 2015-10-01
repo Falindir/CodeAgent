@@ -10,12 +10,12 @@ function MapFactory () {
 
     switch (type) {
       case Type.map.default: // TODO no pass
-          map = Map.create(800, 800);
+          map = Map.create(600, 600);
           map.createZone(5);
           map.createZonePlayer();
         break;
       default:
-          map = Map.create(800, 800);
+          map = Map.create(600, 600);
           map.createZone(5);
           map.createZonePlayer();
     }
