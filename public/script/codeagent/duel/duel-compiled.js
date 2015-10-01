@@ -10,6 +10,15 @@ Texture.MAP = {
   default : PIXI.Texture.fromImage("../../../assets/map.png")
 };
 
+var basesSS = new LIXI.SpriteSheet('../../../assets/bases.png', 250, 1250, 250, 250);
+basesSS.cut();
+
+Texture.Agents = {
+
+  bases : basesSS
+
+};
+
 
 var DuelEditor = LIXI.Stream.extend({
 
@@ -49,6 +58,13 @@ var DuelEditor = LIXI.Stream.extend({
 
     initGame : function(msg) {
       this.createMap(msg.map);
+      var agentsTab = msg.agents;
+      for (var i = 0; i < agentsTab.length; i++) {
+        var agent = agentsTab[i];
+        this.createAgent(agent);
+      }
+
+      this.camera.container.children.sort(LIXI.Compare.zIndex);
     },
 
     createMap : function(data) {
@@ -57,13 +73,30 @@ var DuelEditor = LIXI.Stream.extend({
       var map = new LIXI.Sprite(Texture.MAP.default);
       var mapVH = data.height / 6350; // fix for map nn square
       map.setAnchs(0.5);
-      map.setPosX(this.coordCenterX);
-      map.setPosY(this.coordCenterY);
-      map.setScales(0.09); // TODO fix bug
+      console.log((-1) * (data.width / 2));
+      console.log((-1) * (data.height / 2));
+      map.setPosX((-1) * (data.width / 2));
+      map.setPosY((-1) * (data.height / 2));
+      map.setScales(0.1); // TODO fix bug
 
       this.camera.addSprite(map.sprite);
 
+      this.camera.setPosX(0);
+      this.camera.setPosY(0);
+    },
 
+    createAgent : function(data) {
+      var agent = new LIXI.Sprite(Texture.Agents.bases.blocks.get(0));
+      agent.sprite.zIndex = 10;
+
+      agent.setAnchs(0.5);
+      console.log(data.x);
+      console.log(data.y);
+      agent.setPosX(data.x);
+      agent.setPosY(data.y);
+      agent.setScales(0.1);
+
+      this.camera.addSprite(agent.sprite);
     }
 
 });
